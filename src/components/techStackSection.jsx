@@ -29,7 +29,7 @@ export default function TechStack(){
                             <span className="hero-text text-5xl sm:text-7xl text-primary">Tech Stack </span>
                             <span className="hero-text text-5xl text-light">that I used</span>
                         </div>
-                        <div className="grid grid-cols-5">
+                        <div className="grid grid-cols-4 sm:grid-cols-5">
 
                             {
                                 techIcons.map((item, index) => (
