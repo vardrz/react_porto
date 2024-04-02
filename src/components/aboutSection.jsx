@@ -1,14 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-export default function HeroSection() {
-    function textLink(text){
-        return (
-            <span className="underline text-primary">
-                {text}
-            </span>
-        )
-    }
-    
+export default function HeroSection() {    
     return (
         <>
             <div className="w-full px-10 pt-32">
@@ -16,14 +9,15 @@ export default function HeroSection() {
                     <div className="flex flex-col w-full">
                         <div className="flex flex-col md:flex-row items-center md:items-end">
                             <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6" />
-                            <span className="hero-text text-4xl md:text-4xl lg:text-6xl xl:text-7xl text-light">focused on</span>
+                            <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">focused on</span>
                         </div>
-                        <span className="hero-text text-4xl text-center md:text-left lg:text-6xl xl:text-7xl text-primary mt-2 md:ml-3 md:mt-5">Web & Mobile</span>
-                        <span className="hero-text text-4xl text-center md:text-left lg:text-6xl xl:text-7xl text-primary mt-2 md:ml-3 md:mt-4">Development</span>
+                        <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">Web & Mobile Development</span>
                     </div>
-                    <div className="w-full py-10 md:py-7 md:pl-16 lg:pl-20">
-                        <p className="text-light text-center md:text-left leading-normal text-2xl">
-                            Having experience in {textLink('Laravel')}, {textLink('React')}, & {textLink('Flutter')}, familiar with RESTful API and web service and some experience in IOT project.
+                    <div className="w-full py-7 md:pl-10">
+                        <p className="text-light text-center md:text-left leading-normal text-xl md:text-2xl">
+                            Hi I'm <span className="font-extrabold">Farid Fatkhurrozak</span>. <br />
+                            A software engineer based in Pekalongan, Indonesia. <br />
+                            My work largely revolves on the front-end with <TextLink>React</TextLink> & <TextLink>Flutter</TextLink>, back-end with <TextLink>Laravel</TextLink>.
                         </p>
                         <div className="w-full mt-8 inline-flex flex-row justify-center md:justify-start">
                             <SocialIcon href="http://github.com/vardrz" className="mr-5">
@@ -55,5 +49,13 @@ function SocialIcon({ children, href, className }){
         <a href={href} className={("w-12 h-12 rounded-full bg-light inline-flex justify-center items-center ") + className}>
             {children}
         </a>
+    )
+}
+
+function TextLink({children}){
+    return (
+        <span className="underline text-primary">
+            {children}
+        </span>
     )
 }

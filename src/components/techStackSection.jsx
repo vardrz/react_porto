@@ -30,7 +30,7 @@ export default function TechStack(){
                     <div className="w-full lg:p-5">
                         <div className="md:hidden w-full mb-12 flex flex-col text-center">
                             <span className="hero-text text-5xl sm:text-7xl text-primary">Tech Stack </span>
-                            <span className="hero-text text-5xl text-light">that I used</span>
+                            <span className="hero-text text-4xl sm:text-5xl text-light">that I used</span>
                         </div>
                         <div className="grid grid-cols-4 sm:grid-cols-5">
 
@@ -45,7 +45,7 @@ export default function TechStack(){
 
                         </div>
                     </div>
-                    <div className="hidden md:block w-full pl-10">
+                    <div className="hidden md:block w-full pl-14 lg:self-center">
                         <span className="hero-text text-8xl lg:text-7xl text-primary">Tech Stack </span>
                         <span className="hero-text text-5xl lg:text-9xl text-light">that I used</span>
                     </div>
