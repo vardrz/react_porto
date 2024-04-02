@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 export default function TechStack(){
     const techIcons = [
-        {name: 'JavaScript', icon: 'JavaScript.svg'},
         {name: 'PHP', icon: 'PHP.svg'},
         {name: 'Laravel', icon: 'Laravel.svg'},
+        {name: 'Livewire', icon: 'Livewire.svg'},
         {name: 'CodeIgniter', icon: 'CodeIgniter.svg'},
+        {name: 'JavaScript', icon: 'JavaScript.svg'},
         {name: 'Node.js', icon: 'Node.js.svg'},
         {name: 'React', icon: 'React.svg'},
         {name: 'Flutter', icon: 'Flutter.svg'},
@@ -15,7 +16,9 @@ export default function TechStack(){
         {name: 'PostgresSQL', icon: 'PostgresSQL.svg'},
         {name: 'Firebase', icon: 'Firebase.svg'},
         {name: 'Figma', icon: 'Figma.svg'},
+        {name: 'Postman', icon: 'Postman.svg'},
         {name: 'Git', icon: 'Git.svg'},
+        {name: 'GitHub', icon: 'GitHub.svg'},
         {name: 'Windows', icon: 'Windows 8.svg'},
         {name: 'Ubuntu', icon: 'Ubuntu.svg'},
     ]
