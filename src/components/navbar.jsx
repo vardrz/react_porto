@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import DrawerMenu from "./drawerMenu";
 
 export default function Navbar(){
-    const path = window.location.pathname;
+    const hash = window.location.hash;
+    console.log(hash);
     const avatar = "me-circle.png";
 
     function HomeLink(){
-        if(path == '/'){
+        if(hash == '' || hash == '#/'){
             return (
                 <div className="w-10 sm:w-14 rounded-full p-[0.5px] border-2 border-primary">
                     <img src={avatar} className="w-fit" alt="Farid" />
