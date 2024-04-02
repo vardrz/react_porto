@@ -23,7 +23,7 @@ function ProjectSection(){
 
     return (
         <div className="w-full pt-32 px-10 text-light">
-            <div className="hero-text text-5xl sm:text-7xl mb-24">Featured Projects</div>
+            <div className="hero-text text-5xl sm:text-7xl mb-16">Featured Projects</div>
 
             {
                 projects != null
