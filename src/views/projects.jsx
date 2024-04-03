@@ -56,11 +56,9 @@ function ProjectSection(){
                                 <div className="text-md mt-3 whitespace-pre-wrap">{item.desc}</div>
                                 <div className="text-sm text-primary mt-2">{item.date}</div>
                             </div>
-                            <div className="inline-flex justify-center">
-                                <Link to={'/projects/' + item.slug} state={item}>
-                                    <img src={"projects/" + item.images.split(',')[0]} className="rounded-xl w-full h-fit mb-5 md:mb-0 mt-3 md:mt-5 md:w-4/5" />
-                                </Link>
-                            </div>
+                            <Link to={'/projects/' + item.slug} state={item} className="inline-flex justify-center">
+                                <img src={"projects/" + item.images.split(',')[0]} className="rounded-xl w-full h-fit mb-5 md:mb-0 mt-3 md:mt-5 md:w-4/5" />
+                            </Link>
                         </div>
                     ))
                     : (
