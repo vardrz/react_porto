@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 
 export default function Projects(){
@@ -30,7 +31,7 @@ function ProjectSection(){
                     ? projects.map((item, index) => (
                         <div key={index} className="w-full flex flex-col-reverse  md:flex-row pb-16">
                             <div className="flex flex-col md:w-3/4 justify-center">
-                                <span className="hero-text text-3xl sm:text-4xl text-primary">{item.title}</span>
+                                <Link to={'/projects/' + item.slug} state={item} className="hero-text text-3xl sm:text-4xl text-primary">{item.title}</Link>
 
                                 <div className="flex mt-3">
                                     <div className="text-light w-fit mr-10 flex flex-row items-center">

@@ -3,7 +3,6 @@ import DrawerMenu from "./drawerMenu";
 
 export default function Navbar(){
     const hash = window.location.hash;
-    console.log(hash);
     const avatar = "me-circle.png";
 
     function HomeLink(){
