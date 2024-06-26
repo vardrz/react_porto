@@ -1,14 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 
-export default function HeroSection() {    
+export default function HeroSection() {
+    const [avatarLoad, setAvatarLoad] = useState(true);
+
     return (
         <>
             <div className="w-full px-10 pt-32">
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex flex-col w-full">
                         <div className="flex flex-col md:flex-row items-center md:items-end">
-                            <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6" />
+                            {
+                                avatarLoad ?
+                                    <div className="flex items-center justify-center w-32 h-32 md:w-24 md:h-24 mb-5 md:mb-0 md:mr-6 rounded-full bg-dark2 animate-pulse">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-16 text-light">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+                                        </svg>
+                                    </div> : ""
+                            }
+                            <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6" onLoad={() => setAvatarLoad(false)}/>
                             <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">focused on</span>
                         </div>
                         <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">Web & Mobile Development</span>
