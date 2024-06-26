@@ -16,11 +16,18 @@ function ProjectSection(){
     const [projects, setProjects] = useState(null);
 
     useEffect(() => {
+        // mengisi data projects dengan data yang ada di localstorage jika sudah ada
+        setProjects(JSON.parse(localStorage.getItem("projects")));
+
+        // load data dari api dan mengupdate data projects (data localstorage-nya juga)
         fetch('https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec')
         .then(response => response.json())
-        .then(json => setProjects(json))
+        .then(json => {
+            setProjects(json)
+            localStorage.setItem("projects", JSON.stringify(json))
+        })
         .catch(error => console.error(error));
-    });
+    }, []);
 
     return (
         <div className="w-full pt-32 px-10 text-light">
