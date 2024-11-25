@@ -22,7 +22,7 @@ function ContactSection(){
                     </div>
                     <div className="w-full py-7">
                         <p className="text-light text-left text-xl md:text-2xl md:pr-10">
-                            You can reach me via email and social media.
+                            Need anything? Just hit me up. Email or social media works.
                         </p>
                         <div className="w-full mt-3 inline-flex flex-col justify-center">
                             <SocialIcon name="Email" href="mailto:fatkhurrozakf@gmail.com">

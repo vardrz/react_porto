@@ -26,9 +26,9 @@ export default function HeroSection() {
                     </div>
                     <div className="w-full py-7 md:pl-10">
                         <p className="text-light text-center md:text-left leading-normal text-xl md:text-2xl">
-                            Hi I'm <span className="font-extrabold">Farid Fatkhurrozak</span>. <br />
-                            A software engineer based in Pekalongan, Indonesia. <br />
-                            My work largely revolves on the front-end with <TextLink>React</TextLink> & <TextLink>Flutter</TextLink>, back-end with <TextLink>Laravel</TextLink>.
+                            Hi there! I'm <span className="font-bold">Farid Fatkhurrozak</span><br />
+                            A web developer based in Pekalongan, Indonesia. <br />
+                            I mostly work on the front-end using <TextLink>React</TextLink> & <TextLink>Flutter</TextLink>, and the back-end with <TextLink>Laravel</TextLink>.
                         </p>
                         <div className="w-full mt-8 inline-flex flex-row justify-center md:justify-start">
                             <SocialIcon href="http://github.com/vardrz" className="mr-5">
