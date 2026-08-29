@@ -1,5 +1,6 @@
 export default function TechStack(){
     const techIcons = [
+        {name: 'Go', icon: 'Go.svg'},
         {name: 'PHP', icon: 'PHP.svg'},
         {name: 'Laravel', icon: 'Laravel.svg'},
         {name: 'Livewire', icon: 'Livewire.svg'},
@@ -8,7 +9,6 @@ export default function TechStack(){
         {name: 'Node.js', icon: 'Node.js.svg'},
         {name: 'React', icon: 'React.svg'},
         {name: 'Flutter', icon: 'Flutter.svg'},
-        {name: 'Arduino', icon: 'Arduino.svg'},
         {name: 'Tailwind', icon: 'Tailwind CSS.svg'},
         {name: 'AntDesign', icon: 'Ant Design.svg'},
         {name: 'MySQL', icon: 'MySQL.svg'},
@@ -18,8 +18,10 @@ export default function TechStack(){
         {name: 'Postman', icon: 'Postman.svg'},
         {name: 'Git', icon: 'Git.svg'},
         {name: 'GitHub', icon: 'GitHub.svg'},
-        {name: 'Windows', icon: 'Windows 8.svg'},
-        {name: 'Ubuntu', icon: 'Ubuntu.svg'},
+        {name: 'Docker', icon: 'Docker.svg'},
+        {name: 'Proxmox', icon: 'Proxmox.svg'},
+        {name: 'Cloudflared', icon: 'Cloudflared.svg'},
+        {name: 'Linux', icon: 'Linux.svg'},
     ]
 
     return (

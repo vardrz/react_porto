@@ -24,7 +24,7 @@ export default function HeroSection() {
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col w-full mt-7">
                         <div className="flex flex-col md:flex-row items-center md:items-end">
                             {
                                 avatarLoad ?
@@ -97,4 +97,3 @@ function SocialIcon({ children, href, className }){
         </a>
     )
 }
-
