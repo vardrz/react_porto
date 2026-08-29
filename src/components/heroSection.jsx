@@ -9,8 +9,6 @@ export default function HeroSection() {
                 'I develop Web App💻',
                 2000,
                 'I develop Mobile App📱',
-                2000,
-                'I develop IoT Device💡',
                 1000,
                 ]}
                 speed={50}
@@ -28,7 +26,7 @@ export default function HeroSection() {
                 <span className="hero-text text-7xl md:text-8xl tracking-tight leading-[0.9] text-light">Farid Fatkhurrozak</span>
                 {typing("hero-text text-4xl lg:text-5xl mt-3 tracking-tight leading-none text-primary")}
                 <span className="mt-4 text-sm tracking-wide text-light/40">3+ YEARS • 20+ PROJECTS • PEKALONGAN, ID</span>
-                <span className="mt-8 text-lg leading-relaxed text-light/60 max-w-2xl">Web & Mobile developer — React, Flutter, Laravel. Focused on clean, fast, maintainable products.</span>
+                <span className="mt-8 text-lg leading-relaxed text-light/60 max-w-2xl">Web & Mobile developer — React, Flutter, Go. Focused on clean, fast, maintainable products.</span>
                 <div className="mt-8 flex gap-3">
                     <a href="#/projects" className="px-6 py-3 rounded-lg bg-primary text-dark text-sm font-medium tracking-wide hover:bg-primary/90 transition">View Projects</a>
                     <a href="#/contact" className="px-6 py-3 rounded-lg border border-secondary/20 text-light text-sm tracking-wide hover:border-primary/30 hover:bg-dark2/40 transition">Contact</a>

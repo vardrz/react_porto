@@ -6,8 +6,8 @@ import { useState } from "react";
 export default function Navbar(props){
     const [avatarLoad, setAvatarLoad] = useState(true);
     const hash = window.location.hash;
-    const avatar = "me-circle.png";
-    
+    const avatar = "profile.png";
+
     function HomeLink(){
         if(props.from == 'projects'){
             return (
