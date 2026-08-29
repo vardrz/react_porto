@@ -6,13 +6,16 @@
     font-family: "Poppins", sans-serif;
 }
 
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+::selection { background-color: rgb(20 255 236 / 0.2); }
+
 .hero-text {
     font-family: "Hammersmith One", serif;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 1.5px;
 }
 
 .ant-drawer-body {
     background-color: #212121;
-    /* background-color: #323232; */
 }
