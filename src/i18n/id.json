@@ -1,0 +1,26 @@
+{
+  "nav": { "home": "Home", "projects": "Projects", "about": "Me?", "contact": "Contact" },
+  "hero": {
+    "badge": "Tersedia untuk proyek baru",
+    "typing1": "Saya develop Web App💻",
+    "typing2": "Saya develop Mobile App📱",
+    "subtitle": "Web & Mobile developer — React, Flutter, Go. Fokus bikin produk yang bersih, cepat, dan mudah dirawat.",
+    "stats": "3+ TAHUN • 20+ PROYEK • PEKALONGAN, ID",
+    "statsMobile": "3+ TAHUN • 20+ PROYEK",
+    "ctaProjects": "Lihat Proyek",
+    "ctaContact": "Kontak"
+  },
+  "home": { "featured": "Proyek Pilihan", "viewAll": "Lihat semua →" },
+  "projects": { "title": "Proyek", "featured": "Proyek Pilihan", "live": "Lihat →" },
+  "contact": { "lets": "Mari", "connect": "Terhubung", "desc": "Butuh sesuatu? Hubungi saya. Email atau media sosial bisa." },
+  "about": {
+    "focused": "fokus di",
+    "heading": "Web & Mobile Development",
+    "fallback": "Halo! Saya Farid Fatkhurrozak\nWeb developer berbasis di Pekalongan, Indonesia.\nBiasa kerjakan front-end pakai React & Flutter, dan back-end dengan Laravel.",
+    "years": "3+ Tahun",
+    "projectsCount": "20+ Proyek",
+    "location": "Pekalongan, ID"
+  },
+  "techStack": { "title": "Tech Stack", "tools": "Tools yang saya pakai harian" },
+  "notFound": { "wayoo": "WAYOO", "goBack": "Kembali" }
+}

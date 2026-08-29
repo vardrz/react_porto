@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { useLang } from "../context/LangContext";
+import { pickLangField } from "../context/pickLang";
 
 export default function HeroSection() {
+    const { t, lang } = useLang();
     const [avatarLoad, setAvatarLoad] = useState(true);
     const [profil, setProfil] = useState(() => {
         try { return JSON.parse(localStorage.getItem("profil")); } catch { return null; }
@@ -35,15 +38,13 @@ export default function HeroSection() {
                                     </div> : ""
                             }
                             <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6" onLoad={() => setAvatarLoad(false)}/>
-                            <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">focused on</span>
+                            <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">{t("about.focused")}</span>
                         </div>
-                        <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">Web & Mobile Development</span>
+                        <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">{t("about.heading")}</span>
                     </div>
                     <div className="w-full py-7 md:pl-10">
                         <p className="text-light/70 text-center md:text-left leading-relaxed text-[15px] md:text-base whitespace-pre-wrap">
-                            {profil?.desc ?? `Hi there! I'm Farid Fatkhurrozak
-A web developer based in Pekalongan, Indonesia.
-I mostly work on the front-end using React & Flutter, and the back-end with Laravel.`}
+                            {pickLangField(profil, "desc", lang) || t("about.fallback")}
                         </p>
                         <div className="w-full mt-8 inline-flex flex-row justify-center md:justify-start">
                             <SocialIcon href={profil?.github ?? "http://github.com/vardrz"} className="mr-3">
@@ -79,9 +80,9 @@ I mostly work on the front-end using React & Flutter, and the back-end with Lara
                             </SocialIcon>
                         </div>
                         <div className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">3+ Years</span>
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">20+ Projects</span>
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">Pekalongan, ID</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.years")}</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.projectsCount")}</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.location")}</span>
                         </div>
                     </div>
                 </div>

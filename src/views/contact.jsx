@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/prop-types */
 import Navbar from "../components/navbar";
+import { useLang } from "../context/LangContext";
 
 export default function Contact(){
     return (
@@ -12,17 +11,18 @@ export default function Contact(){
 }
 
 function ContactSection(){
+    const { t } = useLang();
     return (
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto min-h-[calc(100vh-4rem)] flex items-center py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center w-full">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
-                        <span className="hero-text text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">Let's</span>
-                        <span className="hero-text text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">Connect</span>
+                        <span className="hero-text text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">{t("contact.lets")}</span>
+                        <span className="hero-text text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">{t("contact.connect")}</span>
                     </div>
                     <div className="w-full py-7">
                         <p className="text-light/75 text-left text-lg md:text-xl leading-relaxed md:pr-10">
-                            Need anything? Just hit me up. Email or social media works.
+                            {t("contact.desc")}
                         </p>
                         <div className="w-full mt-3 inline-flex flex-col justify-center">
                             <SocialIcon name="Email" href="mailto:fatkhurrozakf@gmail.com">
@@ -68,6 +68,7 @@ function ContactSection(){
     )
 }
 
+/* eslint-disable react/prop-types */
 function SocialIcon({ children, name, href }){
     return (
         <a href={href} target="_blank" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">

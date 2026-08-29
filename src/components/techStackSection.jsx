@@ -1,4 +1,6 @@
+import { useLang } from "../context/LangContext";
 export default function TechStack(){
+    const { t } = useLang();
     const techIcons = [
         {name: 'Go', icon: 'Go.svg'},
         {name: 'PHP', icon: 'PHP.svg'},
@@ -27,7 +29,7 @@ export default function TechStack(){
     return (
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto mt-24 mb-24">
-                <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">Tech Stack</div>
+                <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">{t("techStack.title")}</div>
                 <div className="flex flex-wrap gap-2">
                     {techIcons.map((item, index) => (
                         <span key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/70 hover:border-primary/30 transition">
@@ -35,7 +37,7 @@ export default function TechStack(){
                         </span>
                     ))}
                 </div>
-                <div className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/40">Tools I use daily</div>
+                <div className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/40">{t("techStack.tools")}</div>
             </div>
         </>
     )

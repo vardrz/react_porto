@@ -14,13 +14,18 @@ import Projects from "./views/projects"
 import Contact from "./views/contact"
 import ProjectDetail from "./views/projectsDetail"
 import NotFound from "./views/notFound"
+import { LangProvider } from "./context/LangContext"
 
 const router = createHashRouter([
   { path: "*", Component: Root }
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <LangProvider>
+      <RouterProvider router={router} />
+    </LangProvider>
+  );
 }
 
 function ScrollTop(){ const {pathname}=useLocation(); useEffect(()=>{ window.scrollTo(0,0)},[pathname]); return null}

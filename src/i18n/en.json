@@ -1,0 +1,26 @@
+{
+  "nav": { "home": "Home", "projects": "Projects", "about": "Me?", "contact": "Contact" },
+  "hero": {
+    "badge": "Available for new projects",
+    "typing1": "I develop Web App💻",
+    "typing2": "I develop Mobile App📱",
+    "subtitle": "Web & Mobile developer — React, Flutter, Go. Focused on clean, fast, maintainable products.",
+    "stats": "3+ YEARS • 20+ PROJECTS • PEKALONGAN, ID",
+    "statsMobile": "3+ YEARS • 20+ PROJECTS",
+    "ctaProjects": "View Projects",
+    "ctaContact": "Contact"
+  },
+  "home": { "featured": "Featured Projects", "viewAll": "View all →" },
+  "projects": { "title": "Projects", "featured": "Featured Projects", "live": "Live →" },
+  "contact": { "lets": "Let's", "connect": "Connect", "desc": "Need anything? Just hit me up. Email or social media works." },
+  "about": {
+    "focused": "focused on",
+    "heading": "Web & Mobile Development",
+    "fallback": "Hi there! I'm Farid Fatkhurrozak\nA web developer based in Pekalongan, Indonesia.\nI mostly work on the front-end using React & Flutter, and the back-end with Laravel.",
+    "years": "3+ Years",
+    "projectsCount": "20+ Projects",
+    "location": "Pekalongan, ID"
+  },
+  "techStack": { "title": "Tech Stack", "tools": "Tools I use daily" },
+  "notFound": { "wayoo": "WAYOO", "goBack": "Go Back" }
+}

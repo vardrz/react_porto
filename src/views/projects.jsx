@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
+import { useLang } from "../context/LangContext";
+import { pickLangField } from "../context/pickLang";
 
 export default function Projects(){
     return (
@@ -13,6 +15,7 @@ export default function Projects(){
 
 
 function ProjectSection(){
+    const { t, lang } = useLang();
     const [projects, setProjects] = useState(null);
 
     useEffect(() => {
@@ -32,8 +35,8 @@ function ProjectSection(){
     return (
         <div className="w-full py-24 px-6 md:px-10 max-w-6xl mx-auto text-light">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
-                <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">Projects</div>
-                <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} Featured Projects</span>
+                <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">{t("projects.title")}</div>
+                <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} {t("projects.featured")}</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
@@ -43,10 +46,10 @@ function ProjectSection(){
                             <div className="p-6">
                                 <div className="text-xs tracking-[0.2em] uppercase text-light/40">0{index+1} — {item.createBy.toUpperCase()} • {item.date}</div>
                                 <Link to={'/projects/' + item.slug} state={item} className="hero-text text-2xl font-semibold tracking-tight text-light hover:text-primary/80 transition mt-2 block">{item.title}</Link>
-                                <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-2 whitespace-pre-wrap">{item.desc}</div>
+                                <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
                                 <div className="flex items-center gap-4 mt-3">
                                     <span className="inline-flex items-center text-xs text-light/50"><img src={"tech-icons/" + item.createBy + ".svg"} className="w-4 h-4 mr-1"/>{item.createBy}</span>
-                                    {item.link!='-' ? <a href={item.link} target="_blank" className="text-xs text-light/50 hover:text-secondary underline">Live →</a> : null}
+                                    {item.link!='-' ? <a href={item.link} target="_blank" className="text-xs text-light/50 hover:text-secondary underline">{t("projects.live")}</a> : null}
                                 </div>
                             </div>
                             <Link to={'/projects/' + item.slug} state={item} className="block px-6 pb-6">
