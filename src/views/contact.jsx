@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 
@@ -68,7 +69,6 @@ function ContactSection(){
     )
 }
 
-/* eslint-disable react/prop-types */
 function SocialIcon({ children, name, href }){
     return (
         <a href={href} target="_blank" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">
