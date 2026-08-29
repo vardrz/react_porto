@@ -14,11 +14,11 @@ export default function Contact(){
 function ContactSection(){
     return (
         <>
-            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-24">
-                <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-14 md:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
-                        <span className="hero-text text-6xl sm:text-7xl lg:text-8xl tracking-tight leading-none text-light">Let's</span>
-                        <span className="hero-text text-4xl sm:text-5xl tracking-tight leading-none text-primary">Connect</span>
+                        <span className="hero-text text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">Let's</span>
+                        <span className="hero-text text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">Connect</span>
                     </div>
                     <div className="w-full py-7">
                         <p className="text-light/75 text-left text-lg md:text-xl leading-relaxed md:pr-10">
