@@ -2,10 +2,11 @@ import { TypeAnimation } from 'react-type-animation';
 import { useLang } from "../context/LangContext";
 
 export default function HeroSection() {
-    const { t } = useLang();
+    const { t, lang } = useLang();
     function typing(thisClass){
         return (
             <TypeAnimation
+                key={lang}
                 sequence={[
                 1000,
                 t("hero.typing1"),
