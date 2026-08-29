@@ -14,8 +14,8 @@ export default function Contact(){
 function ContactSection(){
     return (
         <>
-            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-14 md:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto min-h-[calc(100vh-4rem)] flex items-center py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center w-full">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
                         <span className="hero-text text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">Let's</span>
                         <span className="hero-text text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">Connect</span>
