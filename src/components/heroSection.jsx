@@ -37,7 +37,7 @@ export default function HeroSection() {
             <div className="w-full min-h-[85vh] px-6 flex flex-col justify-center items-center text-center md:hidden max-w-6xl mx-auto pt-16">
                 <span className="inline-flex w-fit px-3 py-1 rounded-full border border-primary/20 text-primary text-[11px] tracking-[0.2em] uppercase mb-4">Available for new projects</span>
                 <span className="hero-text text-8xl md:text-6xl tracking-tight leading-[0.9] text-light">FARID</span>
-                <span className="hero-text text-3xl tracking-[0.2em] leading-none text-light">FATKHURROZAK</span>
+                <span className="hero-text text-3xl text-light" style={{ letterSpacing: '0.22em' }}>FATKHURROZAK</span>
                 {typing("mt-4 hero-text text-xl tracking-tight text-primary text-center")}
                 <span className="mt-4 text-xs tracking-wide text-light/40 text-center">3+ YEARS • 20+ PROJECTS</span>
                 <div className="mt-6 flex gap-3 justify-center">
