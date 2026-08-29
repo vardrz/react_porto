@@ -2,8 +2,8 @@
   "nav": { "home": "Home", "projects": "Projects", "about": "Me?", "contact": "Contact" },
   "hero": {
     "badge": "Tersedia untuk proyek baru",
-    "typing1": "Saya develop Web App💻",
-    "typing2": "Saya develop Mobile App📱",
+    "typing1": "Saya membuat Aplikasi Web💻",
+    "typing2": "Saya membuat Aplikasi Mobile📱",
     "subtitle": "Web & Mobile developer — React, Flutter, Go. Fokus bikin produk yang bersih, cepat, dan mudah dirawat.",
     "stats": "3+ TAHUN • 20+ PROYEK • PEKALONGAN, ID",
     "statsMobile": "3+ TAHUN • 20+ PROYEK",
