@@ -14,14 +14,14 @@ export default function Contact(){
 function ContactSection(){
     return (
         <>
-            <div className="w-full px-10 pt-32">
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
-                        <span className="hero-text text-6xl sm:text-8xl lg:text-9xl text-light">Let's</span>
-                        <span className="hero-text text-5xl sm:text-6xl lg:text-7xl text-primary">Connect</span>
+                        <span className="hero-text text-6xl sm:text-7xl lg:text-8xl tracking-tight leading-none text-light">Let's</span>
+                        <span className="hero-text text-4xl sm:text-5xl tracking-tight leading-none text-primary">Connect</span>
                     </div>
                     <div className="w-full py-7">
-                        <p className="text-light text-left text-xl md:text-2xl md:pr-10">
+                        <p className="text-light/75 text-left text-lg md:text-xl leading-relaxed md:pr-10">
                             Need anything? Just hit me up. Email or social media works.
                         </p>
                         <div className="w-full mt-3 inline-flex flex-col justify-center">
@@ -70,8 +70,8 @@ function ContactSection(){
 
 function SocialIcon({ children, name, href }){
     return (
-        <a href={href} target="_blank" className="flex flex-row items-center py-2">
-            <div className="w-7 h-7 rounded-full bg-light inline-flex justify-center items-center ">
+        <a href={href} target="_blank" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">
+            <div className="w-8 h-8 rounded-full bg-light/90 border border-white/5 inline-flex justify-center items-center ">
                 {children}
             </div>
             <span className="text-lg ml-3 text-light">{name}</span>

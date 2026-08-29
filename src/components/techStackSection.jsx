@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export default function TechStack(){
     const techIcons = [
         {name: 'PHP', icon: 'PHP.svg'},

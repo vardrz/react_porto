@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
@@ -94,10 +93,3 @@ function SocialIcon({ children, href, className }){
     )
 }
 
-function TextLink({children}){
-    return (
-        <span className="underline text-primary">
-            {children}
-        </span>
-    )
-}
