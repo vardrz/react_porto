@@ -30,9 +30,9 @@ function ProjectImages(data){
 
     return (
         <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
-            <div className='w-full inline-flex justify-center'>
-                <img src={"/projects/"+images[0]} className='w-full md:w-3/4 aspect-[16/10] object-cover rounded-lg border border-white/5 mb-8' />
-            </div>
+            <div className="hero-text text-3xl md:text-4xl tracking-tight text-light mb-2">{data.data.title}</div>
+            <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">{data.data.createBy} • {data.data.date} {data.data.link!='-' ? <a href={data.data.link} target="_blank" className="ml-2 underline hover:text-secondary">Live →</a> : null}</div>
+            <img src={"/projects/"+images[0]} className='w-full aspect-[16/9] object-cover rounded-lg border border-white/5 mb-8' />
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
