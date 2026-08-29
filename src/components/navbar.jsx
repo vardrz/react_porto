@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DrawerMenu from "./drawerMenu";
 import { useState } from "react";
 import { useLang } from "../context/LangContext";
@@ -7,13 +7,14 @@ import { useLang } from "../context/LangContext";
 export default function Navbar(props){
     const [avatarLoad, setAvatarLoad] = useState(true);
     const { lang, toggle, t } = useLang();
-    const hash = window.location.hash;
+    const { pathname } = useLocation();
     const avatar = "profile.png";
 
     function HomeLink(){
         if(props.from == 'projects' || props.from == 'articles'){
+            const to = props.from == 'articles' ? "/articles" : "/projects";
             return (
-                <Link to="/projects" className="flex flex-row items-center">
+                <Link to={to} className="flex flex-row items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                         <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
                     </svg>
@@ -22,7 +23,7 @@ export default function Navbar(props){
             )
         }
 
-        if(hash == '' || hash == '#/'){
+        if(pathname === '/'){
             return (
                 <div className="flex items-center justify-center w-10 sm:w-[52px] rounded-full p-[0.5px] border-2 border-primary/30">
                     {
