@@ -79,9 +79,9 @@ I mostly work on the front-end using React & Flutter, and the back-end with Lara
                             </SocialIcon>
                         </div>
                         <div className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs tracking-wide text-light/60">3+ Years</span>
-                            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs tracking-wide text-light/60">20+ Projects</span>
-                            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-xs tracking-wide text-light/60">Pekalongan, ID</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">3+ Years</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">20+ Projects</span>
+                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">Pekalongan, ID</span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ I mostly work on the front-end using React & Flutter, and the back-end with Lara
 
 function SocialIcon({ children, href, className }){
     return (
-        <a href={href} className={("w-11 h-11 rounded-full bg-light/90 hover:bg-light transition duration-200 inline-flex justify-center items-center border border-white/5 ") + className}>
+        <a href={href} className={("w-11 h-11 rounded-full bg-light/90 hover:bg-light transition duration-200 inline-flex justify-center items-center border border-dark2 ") + className}>
             {children}
         </a>
     )

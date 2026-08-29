@@ -28,7 +28,7 @@ export default function TechStack(){
                 <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">Tech Stack</div>
                 <div className="flex flex-wrap gap-2">
                     {techIcons.map((item, index) => (
-                        <span key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-xs tracking-wide text-light/70 hover:border-white/20 transition">
+                        <span key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/70 hover:border-primary/30 transition">
                             <img className="w-4 h-4" src={"tech-icons/" + item.icon}/>{item.name}
                         </span>
                     ))}

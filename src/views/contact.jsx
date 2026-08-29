@@ -71,7 +71,7 @@ function ContactSection(){
 function SocialIcon({ children, name, href }){
     return (
         <a href={href} target="_blank" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">
-            <div className="w-8 h-8 rounded-full bg-light/90 border border-white/5 inline-flex justify-center items-center ">
+            <div className="w-8 h-8 rounded-full bg-light/90 border border-dark2 inline-flex justify-center items-center ">
                 {children}
             </div>
             <span className="text-lg ml-3 text-light">{name}</span>

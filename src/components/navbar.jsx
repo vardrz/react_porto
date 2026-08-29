@@ -47,7 +47,7 @@ export default function Navbar(props){
     }
 
     return (
-        <div className="fixed top-0 z-50 flex flex-row bg-dark/80 backdrop-blur-md border-b border-white/5 w-full items-center px-6 md:px-10 h-16 text-light">
+        <div className="fixed top-0 z-50 flex flex-row bg-dark/80 backdrop-blur-md border-b border-dark2 w-full items-center px-6 md:px-10 h-16 text-light">
             <div className="grow">
                 {HomeLink()}
             </div>

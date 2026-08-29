@@ -31,7 +31,7 @@ export default function HeroSection() {
                 <span className="mt-8 text-lg leading-relaxed text-light/60 max-w-2xl">Web & Mobile developer — React, Flutter, Laravel. Focused on clean, fast, maintainable products.</span>
                 <div className="mt-8 flex gap-3">
                     <a href="#/projects" className="px-6 py-3 rounded-lg bg-primary text-dark text-sm font-medium tracking-wide hover:bg-primary/90 transition">View Projects</a>
-                    <a href="#/contact" className="px-6 py-3 rounded-lg border border-white/10 text-light text-sm tracking-wide hover:border-white/20 hover:bg-white/[0.02] transition">Contact</a>
+                    <a href="#/contact" className="px-6 py-3 rounded-lg border border-secondary/20 text-light text-sm tracking-wide hover:border-primary/30 hover:bg-dark2/40 transition">Contact</a>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@ export default function HeroSection() {
                 <span className="mt-4 text-xs tracking-wide text-light/40">3+ YEARS • 20+ PROJECTS</span>
                 <div className="mt-6 flex gap-3">
                     <a href="#/projects" className="px-5 py-2.5 rounded-lg bg-primary text-dark text-sm font-medium">View Projects</a>
-                    <a href="#/contact" className="px-5 py-2.5 rounded-lg border border-white/10 text-light text-sm">Contact</a>
+                    <a href="#/contact" className="px-5 py-2.5 rounded-lg border border-secondary/20 text-light text-sm">Contact</a>
                 </div>
             </div>
         </>

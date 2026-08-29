@@ -13,7 +13,7 @@ export default function Home() {
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-24">
         <div className="flex items-end justify-between mb-6"><span className="hero-text text-4xl tracking-tight text-light">Selected Work</span><Link to="/projects" className="text-sm text-light/60 hover:text-primary underline">View all →</Link></div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((item,i)=><Link key={i} to={'/projects/'+item.slug} state={item} className="rounded-lg border border-white/5 p-6 hover:border-white/10 hover:bg-dark2/50 transition"><div className="text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div><div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div><div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{item.desc}</div><img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-white/5 mt-4"/></Link>)}
+          {projects.map((item,i)=><Link key={i} to={'/projects/'+item.slug} state={item} className="rounded-lg border border-dark2 p-6 hover:border-secondary/20 hover:bg-dark2/50 transition"><div className="text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div><div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div><div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{item.desc}</div><img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-dark2 mt-4"/></Link>)}
         </div>
       </div>
     </>

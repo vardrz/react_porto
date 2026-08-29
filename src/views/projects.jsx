@@ -39,7 +39,7 @@ function ProjectSection(){
             {
                 projects != null
                     ? projects.map((item, index) => (
-                        <div key={index} className="rounded-lg border border-white/5 overflow-hidden hover:border-white/10 hover:bg-dark2/50 transition duration-200">
+                        <div key={index} className="rounded-lg border border-dark2 overflow-hidden hover:border-secondary/20 hover:bg-dark2/50 transition duration-200">
                             <div className="p-6">
                                 <div className="text-xs tracking-[0.2em] uppercase text-light/40">0{index+1} — {item.createBy.toUpperCase()} • {item.date}</div>
                                 <Link to={'/projects/' + item.slug} state={item} className="hero-text text-2xl font-semibold tracking-tight text-light hover:text-primary/80 transition mt-2 block">{item.title}</Link>
@@ -50,14 +50,14 @@ function ProjectSection(){
                                 </div>
                             </div>
                             <Link to={'/projects/' + item.slug} state={item} className="block px-6 pb-6">
-                                <img src={"projects/" + item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-white/5" />
+                                <img src={"projects/" + item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-dark2" />
                             </Link>
                         </div>
                     ))
                     : (
                         <>
-                        <div className="rounded-lg border border-white/5 p-6 animate-pulse"><div className="bg-dark2/50 rounded-lg w-3/5 h-6"></div><div className="bg-dark2/50 rounded-lg mt-4 h-4"></div><div className="bg-dark2/50 rounded-lg mt-2 h-4"></div><div className="bg-dark2/50 rounded-lg mt-6 h-40"></div></div>
-                        <div className="rounded-lg border border-white/5 p-6 animate-pulse"><div className="bg-dark2/50 rounded-lg w-3/5 h-6"></div><div className="bg-dark2/50 rounded-lg mt-4 h-4"></div><div className="bg-dark2/50 rounded-lg mt-2 h-4"></div><div className="bg-dark2/50 rounded-lg mt-6 h-40"></div></div>
+                        <div className="rounded-lg border border-dark2 p-6 animate-pulse"><div className="bg-dark2/50 rounded-lg w-3/5 h-6"></div><div className="bg-dark2/50 rounded-lg mt-4 h-4"></div><div className="bg-dark2/50 rounded-lg mt-2 h-4"></div><div className="bg-dark2/50 rounded-lg mt-6 h-40"></div></div>
+                        <div className="rounded-lg border border-dark2 p-6 animate-pulse"><div className="bg-dark2/50 rounded-lg w-3/5 h-6"></div><div className="bg-dark2/50 rounded-lg mt-4 h-4"></div><div className="bg-dark2/50 rounded-lg mt-2 h-4"></div><div className="bg-dark2/50 rounded-lg mt-6 h-40"></div></div>
                         </>
                     )
             }
