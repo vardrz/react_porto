@@ -47,7 +47,7 @@ function ArticleSection(){
                             <Link key={item.slug ?? i} to={'/articles/'+item.slug} state={item} className="rounded-lg border border-dark2 p-6 hover:border-secondary/20 hover:bg-dark2/50 transition duration-200 block">
                                 <div className="text-xs tracking-[0.2em] uppercase text-light/40">{item.date ?? ""}</div>
                                 <div className="hero-text text-xl font-semibold tracking-tight text-light mt-2 line-clamp-2">{pickLangField(item,"title",lang) || item.title_en || item.title_id || item.slug}</div>
-                                <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-3 whitespace-pre-wrap">{pickLangField(item,"content",lang).slice(0,220) || item.content_en?.slice(0,220) || item.content_id?.slice(0,220) || ""}</div>
+                                {(() => { const c = pickLangField(item,"content",lang) || item.content_en || item.content_id || ""; const w = c.split(/\s+/); const p = w.length > 22 ? w.slice(0,22).join(" ")+"…" : c; return <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-3 whitespace-pre-wrap">{p}</div>; })()}
                                 <div className="mt-4 text-xs tracking-widest text-primary">{t("articles.readMore")}</div>
                             </Link>
                         ))
