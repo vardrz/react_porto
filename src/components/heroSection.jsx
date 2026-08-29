@@ -23,18 +23,18 @@ export default function HeroSection() {
     return (
         <>
             {/* Desktop */}
-            <div className="hidden w-full h-screen px-10 md:flex flex-col justify-center pt-10">
-                <span className="hero-text text-8xl text-light">Farid Fatkhurrozak</span>
-                {typing("hero-text text-5xl lg:text-6xl mt-2 text-primary")}
-                <span className="mt-10 text-3xl text-light">❝ No Hugging, Only Debugging ❞ 🤸‍♂️</span>
+            <div className="hidden w-full min-h-[85vh] px-6 md:px-10 max-w-6xl mx-auto md:flex flex-col justify-center pt-16">
+                <span className="hero-text text-7xl md:text-8xl tracking-tight leading-none text-light">Farid Fatkhurrozak</span>
+                {typing("hero-text text-4xl lg:text-5xl mt-3 tracking-tight text-primary")}
+                <span className="mt-8 text-lg text-light/60 max-w-3xl">❝ No Hugging, Only Debugging ❞ 🤸‍♂️</span>
             </div>
 
             {/* Mobile */}
-            <div className="w-full h-screen px-8 flex flex-col justify-center md:hidden">
-                <span className="hero-text text-7xl sm:text-8xl text-light">Farid</span>
-                <span className="hero-text text-4xl sm:text-6xl text-light">Fatkhurrozak</span>
-                {typing("mt-5 hero-text text-xl sm:text-2xl text-primary")}
-                <span className="mt-10 text-base text-light">❝ No Hugging, Only Debugging ❞ 🤸‍♂️</span>
+            <div className="w-full min-h-[85vh] px-6 flex flex-col justify-center md:hidden max-w-6xl mx-auto">
+                <span className="hero-text text-6xl sm:text-7xl tracking-tight leading-none text-light">Farid</span>
+                <span className="hero-text text-3xl sm:text-5xl tracking-tight leading-none text-light">Fatkhurrozak</span>
+                {typing("mt-5 hero-text text-xl sm:text-2xl tracking-tight text-primary")}
+                <span className="mt-8 text-base text-light/60">❝ No Hugging, Only Debugging ❞ 🤸‍♂️</span>
             </div>
         </>
     )
