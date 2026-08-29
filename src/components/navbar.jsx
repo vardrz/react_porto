@@ -73,12 +73,16 @@ export default function Navbar(props){
                     </svg>
                     <span className="ml-2">{t("nav.contact")}</span>
                 </Link>
-                <button onClick={toggle} className="ml-2 px-3 py-1 rounded-full border border-secondary/20 text-xs tracking-widest hover:border-primary/30 transition">
-                    {lang === "en" ? "EN" : "ID"}<span className="opacity-40"> / {lang === "en" ? "ID" : "EN"}</span>
-                </button>
+                <div className="ml-2 inline-flex items-center rounded-full border border-dark2 bg-dark2/50 p-1">
+                    <button onClick={() => lang !== "en" && toggle()} className={`px-3 py-1 rounded-full text-xs tracking-widest transition ${lang === "en" ? "bg-primary text-dark font-medium" : "text-light/60 hover:text-light"}`}>EN</button>
+                    <button onClick={() => lang !== "id" && toggle()} className={`px-3 py-1 rounded-full text-xs tracking-widest transition ${lang === "id" ? "bg-primary text-dark font-medium" : "text-light/60 hover:text-light"}`}>ID</button>
+                </div>
             </div>
             <div className="sm:hidden flex items-center gap-3">
-                <button onClick={toggle} className="px-2.5 py-1 rounded-full border border-secondary/20 text-xs tracking-widest">{lang === "en" ? "EN" : "ID"}</button>
+                <div className="inline-flex items-center rounded-full border border-dark2 bg-dark2/50 p-0.5">
+                    <button onClick={() => lang !== "en" && toggle()} className={`px-2.5 py-1 rounded-full text-xs tracking-widest transition ${lang === "en" ? "bg-primary text-dark font-medium" : "text-light/60"}`}>EN</button>
+                    <button onClick={() => lang !== "id" && toggle()} className={`px-2.5 py-1 rounded-full text-xs tracking-widest transition ${lang === "id" ? "bg-primary text-dark font-medium" : "text-light/60"}`}>ID</button>
+                </div>
                 <DrawerMenu/>
             </div>
         </div>
