@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "projects": "Projects", "about": "Me?", "contact": "Contact" },
+  "nav": { "home": "Home", "projects": "Projects", "articles": "Tulisan", "about": "Me?", "contact": "Contact" },
   "hero": {
     "badge": "Tersedia untuk proyek baru",
     "typing1": "Saya membuat Aplikasi Web💻",
@@ -22,5 +22,6 @@
     "location": "Pekalongan, ID"
   },
   "techStack": { "title": "Tech Stack", "tools": "Tools yang saya pakai harian" },
+  "articles": { "title": "Tulisan", "subtitle": "Catatan & Tulisan", "empty": "Belum ada tulisan.", "back": "Kembali ke Tulisan", "readMore": "Baca →" },
   "notFound": { "wayoo": "WAYOO", "goBack": "Kembali" }
 }

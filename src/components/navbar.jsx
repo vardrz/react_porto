@@ -11,13 +11,13 @@ export default function Navbar(props){
     const avatar = "profile.png";
 
     function HomeLink(){
-        if(props.from == 'projects'){
+        if(props.from == 'projects' || props.from == 'articles'){
             return (
                 <Link to="/projects" className="flex flex-row items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                         <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
                     </svg>
-                    <span className="ml-1">{t("nav.projects")}</span>
+                    <span className="ml-1">{props.from == 'articles' ? t("nav.articles") : t("nav.projects")}</span>
                 </Link>
             )
         }
@@ -65,6 +65,12 @@ export default function Navbar(props){
                         <path fillRule="evenodd" d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm14.25 6a.75.75 0 0 1-.22.53l-2.25 2.25a.75.75 0 1 1-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 1 1 1.06-1.06l2.25 2.25c.141.14.22.331.22.53Zm-10.28-.53a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 1 0 1.06-1.06L8.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-2.25 2.25Z" clipRule="evenodd" />
                     </svg>
                     <span className="ml-2">{t("nav.projects")}</span>
+                </Link>
+                <Link to="/articles" className="px-6 inline-flex flex-row items-center hover:text-primary transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-primary">
+                        <path fillRule="evenodd" d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875A1.875 1.875 0 0 1 12.75 7.125V5.625A3.75 3.75 0 0 0 9 1.875H5.625ZM12.75 7.125A.375.375 0 0 1 13.125 6.75h1.875a1.5 1.5 0 0 1 1.5 1.5v1.875a.375.375 0 0 1-.375.375H13.5a1.5 1.5 0 0 1-1.5-1.5V7.125ZM9 9.75A.75.75 0 0 1 9.75 9h1.5a.75.75 0 0 1 0 1.5h-1.5A.75.75 0 0 1 9 9.75Zm0 3A.75.75 0 0 1 9.75 12h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 9 12.75Zm0 3A.75.75 0 0 1 9.75 15h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 9 15.75Z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-2">{t("nav.articles")}</span>
                 </Link>
                 <Link to="/contact" className="px-6 inline-flex flex-row items-center hover:text-primary transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-primary">

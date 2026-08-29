@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "projects": "Projects", "about": "Me?", "contact": "Contact" },
+  "nav": { "home": "Home", "projects": "Projects", "articles": "Blog", "about": "Me?", "contact": "Contact" },
   "hero": {
     "badge": "Available for new projects",
     "typing1": "I develop Web App💻",
@@ -22,5 +22,6 @@
     "location": "Pekalongan, ID"
   },
   "techStack": { "title": "Tech Stack", "tools": "Tools I use daily" },
+  "articles": { "title": "Blog", "subtitle": "Writings & Notes", "empty": "No articles yet.", "back": "Back to Blog", "readMore": "Read →" },
   "notFound": { "wayoo": "WAYOO", "goBack": "Go Back" }
 }

@@ -11,6 +11,8 @@ import { useEffect } from "react"
 import Home from "./views/home"
 import About from "./views/about"
 import Projects from "./views/projects"
+import Articles from "./views/articles"
+import ArticleDetail from "./views/articleDetail"
 import Contact from "./views/contact"
 import ProjectDetail from "./views/projectsDetail"
 import NotFound from "./views/notFound"
@@ -40,6 +42,8 @@ function Root() {
       <Route path="/about" element={<About />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:slug" element={<ProjectDetail />} />
+      <Route path="/articles" element={<Articles />} />
+      <Route path="/articles/:slug" element={<ArticleDetail />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
     </>
