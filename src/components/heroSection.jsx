@@ -34,13 +34,13 @@ export default function HeroSection() {
             </div>
 
             {/* Mobile */}
-            <div className="w-full min-h-[85vh] px-6 flex flex-col justify-center md:hidden max-w-6xl mx-auto pt-16">
+            <div className="w-full min-h-[85vh] px-6 flex flex-col justify-center items-center text-center md:hidden max-w-6xl mx-auto pt-16">
                 <span className="inline-flex w-fit px-3 py-1 rounded-full border border-primary/20 text-primary text-[11px] tracking-[0.2em] uppercase mb-4">Available for new projects</span>
                 <span className="hero-text text-6xl tracking-tight leading-[0.9] text-light">Farid</span>
                 <span className="hero-text text-3xl tracking-tight leading-none text-light">Fatkhurrozak</span>
-                {typing("mt-4 hero-text text-xl tracking-tight text-primary")}
-                <span className="mt-4 text-xs tracking-wide text-light/40">3+ YEARS • 20+ PROJECTS</span>
-                <div className="mt-6 flex gap-3">
+                {typing("mt-4 hero-text text-xl tracking-tight text-primary text-center")}
+                <span className="mt-4 text-xs tracking-wide text-light/40 text-center">3+ YEARS • 20+ PROJECTS</span>
+                <div className="mt-6 flex gap-3 justify-center">
                     <a href="#/projects" className="px-5 py-2.5 rounded-lg bg-primary text-dark text-sm font-medium">View Projects</a>
                     <a href="#/contact" className="px-5 py-2.5 rounded-lg border border-secondary/20 text-light text-sm">Contact</a>
                 </div>
