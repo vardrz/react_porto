@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
+import SEO from "../components/SEO";
 
 export default function Contact(){
+    const { lang } = useLang();
     return (
         <>
+            <SEO title="Contact" canonical="/contact" description="Hubungi Farid Fatkhurrozak — Email, LinkedIn, WhatsApp, Instagram. Pekalongan ID." lang={lang} />
             <Navbar/>
-            <ContactSection/> 
+            <ContactSection/>
         </>
     )
-}
+ }
 
 function ContactSection(){
     const { t } = useLang();

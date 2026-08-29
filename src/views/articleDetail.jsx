@@ -3,6 +3,7 @@ import { Navigate, useLocation, useParams, Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import SEO from "../components/SEO";
 
 const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Articles";
 
@@ -39,9 +40,11 @@ export default function ArticleDetail(){
 
     const title = pickLangField(article,"title",lang) || article.title_en || article.title_id || article.slug;
     const content = pickLangField(article,"content",lang) || article.content_en || article.content_id || "";
+    const desc = String(content).replace(/\s+/g," ").trim().slice(0,160);
 
     return (
         <>
+            <SEO title={title} description={desc || title} canonical={`/articles/${slug}`} type="article" lang={lang} article={{ publishedTime: article.date, author: "Farid Fatkhurrozak" }} />
             <Navbar from="articles"/>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
                 <Link to="/articles" className="text-xs tracking-widest text-light/40 hover:text-primary transition">← {t("articles.back")}</Link>

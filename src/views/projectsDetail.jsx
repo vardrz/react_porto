@@ -1,8 +1,10 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navigate, useLocation, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import SEO from "../components/SEO";
 
 import Navbar from "../components/navbar";
 
@@ -10,23 +12,49 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec";
+
 export default function ProjectDetail(){
     const { t, lang } = useLang();
-    const data = useLocation();
+    const { slug } = useParams();
+    const loc = useLocation();
+    const [project, setProject] = useState(loc.state ?? null);
+    const [checked, setChecked] = useState(!!loc.state);
 
-    return data.state == null
-        ? <Navigate to="/notfound" state={{ from: 'projects' }} />
-        : (
-            <>
-                <Navbar from="projects"/>
-                <ProjectImages data={data.state} t={t}/>
-                <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
-                    <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
-                        {pickLangField(data.state,"fullDesc",lang)}
-                    </div>
+    useEffect(()=>{
+        if(loc.state) return;
+        try{ const cached=JSON.parse(localStorage.getItem("projects")); const found=cached?.find(p=>p.slug===slug); if(found){ setProject(found); setChecked(true); return; } }catch{/*ignore*/}
+        fetch(API).then(r=>r.json()).then(json=>{
+            const data=Array.isArray(json)?json:[];
+            const found=data.find(p=>p.slug===slug);
+            if(found){ setProject(found); try{localStorage.setItem("projects",JSON.stringify(data))}catch{/*ignore*/}}
+            setChecked(true);
+        }).catch(()=>setChecked(true));
+    },[slug, loc.state]);
+
+    if(!checked) return (
+        <>
+            <Navbar from="projects"/>
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24"><div className="h-8 w-2/3 bg-dark2/50 rounded-lg animate-pulse"></div></div>
+        </>
+    );
+    if(!project) return <Navigate to="/notfound" state={{ from: 'projects' }} />;
+
+    const title = project.title || slug;
+    const desc = String(pickLangField(project,"desc",lang) || project.desc || "").replace(/\s+/g," ").trim().slice(0,160);
+    const img = project.images ? `/projects/${project.images.split(",")[0].trim()}` : "/profile.png";
+    return (
+        <>
+            <SEO title={title} description={desc || title} canonical={`/projects/${slug}`} image={img} type="article" lang={lang} article={{ publishedTime: project.date, author: project.createBy || "Farid Fatkhurrozak" }} />
+            <Navbar from="projects"/>
+            <ProjectImages data={project} t={t}/>
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
+                <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
+                    {pickLangField(project,"fullDesc",lang)}
                 </div>
-            </>
-        )
+            </div>
+        </>
+    )
 }
 
 function ProjectImages(data){

@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import SEO from "../components/SEO";
 
 const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Articles";
 
 export default function Articles(){
+    const { lang } = useLang();
     return (
         <>
+            <SEO title={lang==="id"?"Tulisan":"Blog"} canonical="/articles" description="Catatan & tulisan Farid tentang web, mobile, dan engineering." lang={lang} />
             <Navbar/>
             <ArticleSection/>
         </>
     )
-}
+ }
 
 function ArticleSection(){
     const { t, lang } = useLang();

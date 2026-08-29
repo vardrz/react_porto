@@ -1,5 +1,5 @@
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   Routes,
   Route,
@@ -7,6 +7,7 @@ import {
   useLocation
 } from "react-router-dom"
 import { useEffect } from "react"
+import { HelmetProvider } from "react-helmet-async"
 
 import Home from "./views/home"
 import About from "./views/about"
@@ -18,15 +19,17 @@ import ProjectDetail from "./views/projectsDetail"
 import NotFound from "./views/notFound"
 import { LangProvider } from "./context/LangContext"
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   { path: "*", Component: Root }
 ]);
 
 export default function App() {
   return (
-    <LangProvider>
-      <RouterProvider router={router} />
-    </LangProvider>
+    <HelmetProvider>
+      <LangProvider>
+        <RouterProvider router={router} />
+      </LangProvider>
+    </HelmetProvider>
   );
 }
 

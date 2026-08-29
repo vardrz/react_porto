@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import SEO from "../components/SEO";
 
 export default function Projects(){
+    const { lang } = useLang();
     return (
         <>
+            <SEO title="Projects" canonical="/projects" description="Kumpulan proyek Farid — Web & Mobile: React, Flutter, Laravel, Go. 20+ proyek selesai." lang={lang} />
             <Navbar/>
             <ProjectSection/>
         </>
     )
-}
+ }
 
 
 function ProjectSection(){
