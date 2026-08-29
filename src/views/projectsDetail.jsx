@@ -17,8 +17,10 @@ export default function ProjectDetail(){
             <>
                 <Navbar from="projects"/>
                 <ProjectImages data={data.state}/>
-                <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-12 text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert max-w-none">
-                    {data.state.fullDesc}
+                <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
+                    <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
+                        {data.state.fullDesc}
+                    </div>
                 </div>
             </>
         )
