@@ -24,31 +24,16 @@ export default function TechStack(){
 
     return (
         <>
-            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto mt-32 mb-24">
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className="w-full lg:p-5">
-                        <div className="md:hidden w-full mb-12 flex flex-col text-center">
-                            <span className="hero-text text-5xl sm:text-7xl text-primary">Tech Stack </span>
-                            <span className="hero-text text-4xl sm:text-5xl text-light">that I used</span>
-                        </div>
-                        <div className="grid grid-cols-4 sm:grid-cols-5 gap-4">
-
-                            {
-                                techIcons.map((item, index) => (
-                                    <div key={index} className="flex flex-col items-center gap-2 p-3 bg-dark2/50 rounded-lg border border-white/5 hover:border-white/10 hover:bg-dark2 transition duration-200">
-                                        <img className="w-8 h-8" src={"tech-icons/" + item.icon}/>
-                                        <span className="text-light/70 text-[11px] tracking-wide">{item.name}</span>
-                                    </div>
-                                ))
-                            }
-
-                        </div>
-                    </div>
-                    <div className="hidden md:block w-full pl-14 lg:self-center">
-                        <span className="hero-text text-7xl lg:text-6xl tracking-tight text-primary">Tech Stack </span>
-                        <span className="hero-text text-5xl lg:text-7xl tracking-tight text-light">that I used</span>
-                    </div>
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto mt-24 mb-24">
+                <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">Tech Stack</div>
+                <div className="flex flex-wrap gap-2">
+                    {techIcons.map((item, index) => (
+                        <span key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-xs tracking-wide text-light/70 hover:border-white/20 transition">
+                            <img className="w-4 h-4" src={"tech-icons/" + item.icon}/>{item.name}
+                        </span>
+                    ))}
                 </div>
+                <div className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/40">Tools I use daily</div>
             </div>
         </>
     )
