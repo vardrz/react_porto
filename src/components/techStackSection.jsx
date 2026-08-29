@@ -35,7 +35,7 @@ export default function TechStack(){
 
                             {
                                 techIcons.map((item, index) => (
-                                    <div key={index} className="flex flex-col items-center gap-2 p-3 bg-dark2/50 rounded-2xl border border-white/5 hover:border-white/10 hover:bg-dark2 transition duration-200">
+                                    <div key={index} className="flex flex-col items-center gap-2 p-3 bg-dark2/50 rounded-lg border border-white/5 hover:border-white/10 hover:bg-dark2 transition duration-200">
                                         <img className="w-8 h-8" src={"tech-icons/" + item.icon}/>
                                         <span className="text-light/70 text-[11px] tracking-wide">{item.name}</span>
                                     </div>

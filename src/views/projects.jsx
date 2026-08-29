@@ -64,20 +64,20 @@ function ProjectSection(){
                                 <div className="text-xs tracking-wide text-primary/70 mt-3">{item.date}</div>
                             </div>
                             <Link to={'/projects/' + item.slug} state={item} className="inline-flex justify-center">
-                                <img src={"projects/" + item.images.split(',')[0]} className="rounded-xl w-full aspect-[16/10] object-cover border border-white/5 hover:border-white/10 transition mb-5 md:mb-0 mt-3 md:mt-5 md:w-4/5" />
+                                <img src={"projects/" + item.images.split(',')[0]} className="rounded-lg w-full aspect-[16/10] object-cover border border-white/5 hover:border-white/10 transition mb-5 md:mb-0 mt-3 md:mt-5 md:w-4/5" />
                             </Link>
                         </div>
                     ))
                     : (
                         <div className="w-full flex flex-col-reverse py-12 border-b border-white/5 md:flex-row md:items-center">
                             <div className="md:w-2/4">
-                                <div className="bg-dark2/50 animate-pulse rounded-xl border border-white/5 w-3/5 h-7"></div>
-                                <div className="bg-dark2/50 animate-pulse rounded-xl border border-white/5 mt-7 full h-5"></div>
-                                <div className="bg-dark2/50 animate-pulse rounded-xl border border-white/5 mt-4 full h-5"></div>
-                                <div className="bg-dark2/50 animate-pulse rounded-xl border border-white/5 mt-4 full h-5"></div>
+                                <div className="bg-dark2/50 animate-pulse rounded-lg border border-white/5 w-3/5 h-7"></div>
+                                <div className="bg-dark2/50 animate-pulse rounded-lg border border-white/5 mt-7 full h-5"></div>
+                                <div className="bg-dark2/50 animate-pulse rounded-lg border border-white/5 mt-4 full h-5"></div>
+                                <div className="bg-dark2/50 animate-pulse rounded-lg border border-white/5 mt-4 full h-5"></div>
                             </div>
                             <div className="md:w-2/4 mb-10 md:mb-0 md:px-10">
-                                <div className="bg-dark2/50 animate-pulse rounded-xl border border-white/5 w-full p-12 inline-flex justify-center">
+                                <div className="bg-dark2/50 animate-pulse rounded-lg border border-white/5 w-full p-12 inline-flex justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="text-dark w-16 md:w-24">
                                         <path fillRule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clipRule="evenodd" />
                                     </svg>

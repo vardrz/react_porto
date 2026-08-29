@@ -12,7 +12,11 @@ export default {
       "dark": "#212121",
       "dark2": "#323232"
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
