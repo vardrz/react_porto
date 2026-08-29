@@ -33,7 +33,7 @@ function ProjectSection(){
         <div className="w-full py-24 px-6 md:px-10 max-w-6xl mx-auto text-light">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
                 <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">Projects</div>
-                <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} CASE STUDIES</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} Featured Projects</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {

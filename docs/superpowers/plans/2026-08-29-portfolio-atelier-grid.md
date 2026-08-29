@@ -114,7 +114,7 @@ Change header:
 <div className="w-full pt-24 px-6 md:px-10 max-w-6xl mx-auto text-light">
     <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
         <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">Projects</div>
-        <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} CASE STUDIES</span>
+        <span className="text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} Featured Projects</span>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 ```
@@ -276,7 +276,7 @@ export default function Home() {
       <Navbar/>
       <HeroSection/>
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-24">
-        <div className="flex items-end justify-between mb-6"><span className="hero-text text-4xl tracking-tight text-light">Selected Work</span><Link to="/projects" className="text-sm text-light/60 hover:text-primary underline">View all →</Link></div>
+        <div className="flex items-end justify-between mb-6"><span className="hero-text text-4xl tracking-tight text-light">Featured Projects</span><Link to="/projects" className="text-sm text-light/60 hover:text-primary underline">View all →</Link></div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((item,i)=><Link key={i} to={'/projects/'+item.slug} state={item} className="rounded-lg border border-white/5 p-6 hover:border-white/10 hover:bg-dark2/50 transition"><div className="text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div><div className="hero-text text-xl font-semibold mt-2">{item.title}</div><div className="text-sm text-light/60 line-clamp-2 mt-2">{item.desc}</div><img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-white/5 mt-4"/></Link>)}
         </div>
@@ -298,7 +298,7 @@ Run: `npm run build && npm run lint`
 
 ```bash
 git add src/views/home.jsx src/App.jsx src/components/navbar.jsx
-git commit -m "feat(home): selected work bento + scrollTop"
+git commit -m "feat(home): Featured Projects bento + scrollTop"
 ```
 
 ---
