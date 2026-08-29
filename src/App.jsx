@@ -3,8 +3,10 @@ import {
   RouterProvider,
   Routes,
   Route,
-  Navigate
+  Navigate,
+  useLocation
 } from "react-router-dom"
+import { useEffect } from "react"
 
 import Home from "./views/home"
 import About from "./views/about"
@@ -21,8 +23,11 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 
+function ScrollTop(){ const {pathname}=useLocation(); useEffect(()=>{ window.scrollTo(0,0)},[pathname]); return null}
 function Root() {
   return (
+    <>
+    <ScrollTop/>
     <Routes>
       <Route path="*" element={<Navigate to="/notfound" replace />} />
       <Route path="notfound" element={<NotFound />} />
@@ -32,5 +37,6 @@ function Root() {
       <Route path="/projects/:slug" element={<ProjectDetail />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
+    </>
   )
 }
