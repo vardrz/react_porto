@@ -9,7 +9,7 @@ export default function Projects(){
     const { lang } = useLang();
     return (
         <>
-            <SEO title="Projects" canonical="/projects" description="Kumpulan proyek Farid — Web & Mobile: React, Flutter, Laravel, Go. 20+ proyek selesai." lang={lang} />
+            <SEO title="Projects" canonical="/projects" description="Kumpulan proyek Farid — Web & Mobile: React, Flutter, Laravel, Go. 20+ proyek selesai." lang={lang} noindex />
             <Navbar/>
             <ProjectSection/>
         </>

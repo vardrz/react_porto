@@ -8,7 +8,7 @@ export default function About() {
   const { lang } = useLang();
   return (
     <>
-      <SEO title="About" canonical="/about" description="Farid Fatkhurrozak — Web & Mobile developer di Pekalongan. React, Flutter, Laravel, Go. 3+ tahun, 20+ proyek." lang={lang} />
+      <SEO title="About" canonical="/about" description="Farid Fatkhurrozak — Web & Mobile developer di Pekalongan. React, Flutter, Laravel, Go. 3+ tahun, 20+ proyek." lang={lang} noindex />
       <Navbar/>
       <AboutSection/>
       <TechStack/>

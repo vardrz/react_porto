@@ -7,7 +7,7 @@ export default function Contact(){
     const { lang } = useLang();
     return (
         <>
-            <SEO title="Contact" canonical="/contact" description="Hubungi Farid Fatkhurrozak — Email, LinkedIn, WhatsApp, Instagram. Pekalongan ID." lang={lang} />
+            <SEO title="Contact" canonical="/contact" description="Hubungi Farid Fatkhurrozak — Email, LinkedIn, WhatsApp, Instagram. Pekalongan ID." lang={lang} noindex />
             <Navbar/>
             <ContactSection/>
         </>

@@ -45,7 +45,7 @@ export default function ProjectDetail(){
     const img = project.images ? `/projects/${project.images.split(",")[0].trim()}` : "/profile.png";
     return (
         <>
-            <SEO title={title} description={desc || title} canonical={`/projects/${slug}`} image={img} type="article" lang={lang} article={{ publishedTime: project.date, author: project.createBy || "Farid Fatkhurrozak" }} />
+            <SEO title={title} description={desc || title} canonical={`/projects/${slug}`} image={img} type="article" lang={lang} noindex article={{ publishedTime: project.date, author: project.createBy || "Farid Fatkhurrozak" }} />
             <Navbar from="projects"/>
             <ProjectImages data={project} t={t}/>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">

@@ -10,10 +10,7 @@ const GAS_ARTICLES = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1
 
 const staticUrls = [
   { loc: `${SITE}/`, changefreq: "weekly", priority: "1.0" },
-  { loc: `${SITE}/about`, changefreq: "monthly", priority: "0.8" },
-  { loc: `${SITE}/projects`, changefreq: "weekly", priority: "0.9" },
   { loc: `${SITE}/articles`, changefreq: "weekly", priority: "0.9" },
-  { loc: `${SITE}/contact`, changefreq: "monthly", priority: "0.5" },
 ];
 
 async function fetchJson(url) {
@@ -74,10 +71,7 @@ async function main(){
   const isShimMode = process.argv.includes("--shim") || existsSync("dist/index.html");
   const urls = [...staticUrls];
 
-  const [projects, articles] = await Promise.all([fetchJson(GAS_PROJECTS), fetchJson(GAS_ARTICLES)]);
-  if (projects) {
-    for (const p of projects) if (p.slug) urls.push({ loc: `${SITE}/projects/${p.slug}`, changefreq:"monthly", priority:"0.7", lastmod: p.date ? undefined : undefined });
-  }
+  const articles = await fetchJson(GAS_ARTICLES);
   if (articles) {
     for (const a of articles) if (a.slug) urls.push({ loc: `${SITE}/articles/${a.slug}`, changefreq:"monthly", priority:"0.7", lastmod: a.date ? undefined : undefined });
   }
@@ -104,17 +98,6 @@ async function main(){
       try {
         const tmpl = idx;
         let shimCount=0;
-        if (projects) for (const p of projects) if (p.slug) {
-          const title = p.title || p.slug;
-          const langDesc = p.desc_id || p.desc_en || p.desc || "";
-          const desc = trimDesc(langDesc) || `Proyek ${title} — Farid Fatkhurrozak`;
-          const img = p.images ? `/projects/${p.images.split(",")[0].trim()}` : "/profile.png";
-          const html = shimHtml(tmpl, { title, desc, canonical:`/projects/${p.slug}`, image:img, type:"article", publishedTime: p.date });
-          const dir = join("dist","projects",p.slug);
-          mkdirSync(dir,{recursive:true});
-          writeFileSync(join(dir,"index.html"), html);
-          shimCount++;
-        }
         if (articles) for (const a of articles) if (a.slug) {
           const title = a.title_id || a.title_en || a.title || a.slug;
           const content = a.content_id || a.content_en || a.content || "";
