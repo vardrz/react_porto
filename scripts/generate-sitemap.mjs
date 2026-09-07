@@ -98,6 +98,14 @@ async function main(){
       try {
         const tmpl = idx;
         let shimCount=0;
+        // shim for /articles list (biar GH Pages return 200 bukan 404)
+        {
+          const html = shimHtml(tmpl, { title: "Tulisan", desc: "Catatan & tulisan Farid tentang web, mobile, dan engineering.", canonical:"/articles", image:"/profile.png", type:"website" });
+          const dir = join("dist","articles");
+          mkdirSync(dir,{recursive:true});
+          writeFileSync(join(dir,"index.html"), html);
+          shimCount++;
+        }
         if (articles) for (const a of articles) if (a.slug) {
           const title = a.title_id || a.title_en || a.title || a.slug;
           const content = a.content_id || a.content_en || a.content || "";
