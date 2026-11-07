@@ -2,6 +2,8 @@
 import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import SEO from "../components/SEO";
+import Reveal from "../components/motion/Reveal";
+import Stagger from "../components/motion/Stagger";
 
 export default function Contact(){
     const { lang } = useLang();
@@ -21,14 +23,16 @@ function ContactSection(){
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto min-h-[calc(100vh-4rem)] flex items-center py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center w-full">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
-                        <span className="hero-text text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">{t("contact.lets")}</span>
-                        <span className="hero-text text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">{t("contact.connect")}</span>
+                        <Reveal y={32}><span className="hero-text block text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">{t("contact.lets")}</span></Reveal>
+                        <Reveal y={32} delay={0.08}><span className="hero-text block text-6xl sm:text-7xl lg:text-[84px] tracking-tight leading-none text-primary">{t("contact.connect")}</span></Reveal>
                     </div>
                     <div className="w-full py-7">
-                        <p className="text-light/75 text-left text-lg md:text-xl leading-relaxed md:pr-10">
-                            {t("contact.desc")}
-                        </p>
-                        <div className="w-full mt-3 inline-flex flex-col justify-center">
+                        <Reveal delay={0.16}>
+                            <p className="text-light/75 text-left text-lg md:text-xl leading-relaxed md:pr-10">
+                                {t("contact.desc")}
+                            </p>
+                        </Reveal>
+                        <Stagger className="w-full mt-3 inline-flex flex-col justify-center" gap={0.06}>
                             <SocialIcon name="Email" href="mailto:fatkhurrozakf@gmail.com">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -64,7 +68,7 @@ function ContactSection(){
                                     d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                                 </svg>
                             </SocialIcon>
-                        </div>
+                        </Stagger>
                     </div>
                 </div>
             </div>
@@ -74,11 +78,13 @@ function ContactSection(){
 
 function SocialIcon({ children, name, href }){
     return (
-        <a href={href} target="_blank" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">
-            <div className="w-8 h-8 rounded-full bg-light/90 border border-dark2 inline-flex justify-center items-center ">
-                {children}
-            </div>
-            <span className="text-lg ml-3 text-light">{name}</span>
-        </a>
+        <Stagger.Item>
+            <a href={href} target="_blank" rel="noreferrer" className="flex flex-row items-center py-3 hover:translate-x-1 transition duration-200">
+                <div className="w-8 h-8 rounded-full bg-light/90 border border-dark2 inline-flex justify-center items-center ">
+                    {children}
+                </div>
+                <span className="text-lg ml-3 text-light">{name}</span>
+            </a>
+        </Stagger.Item>
     )
 }

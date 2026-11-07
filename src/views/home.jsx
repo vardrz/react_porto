@@ -5,6 +5,9 @@ import HeroSection from "../components/heroSection"
 import { useLang } from "../context/LangContext"
 import { pickLangField } from "../context/pickLang"
 import SEO from "../components/SEO"
+import Reveal from "../components/motion/Reveal"
+import Stagger from "../components/motion/Stagger"
+import TiltCard from "../components/motion/TiltCard"
 
 export default function Home() {
   const { t, lang } = useLang();
@@ -16,10 +19,24 @@ export default function Home() {
       <Navbar/>
       <HeroSection/>
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-24">
-        <div className="flex items-end justify-between mb-6"><span className="hero-text text-4xl tracking-tight text-light">{t("home.featured")}</span><Link to="/projects" className="text-sm text-light/60 hover:text-primary underline">{t("home.viewAll")}</Link></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((item,i)=><Link key={i} to={'/projects/'+item.slug} state={item} className="rounded-lg border border-dark2 p-6 hover:border-secondary/20 hover:bg-dark2/50 transition"><div className="text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div><div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div><div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div><img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-md w-full aspect-[16/10] object-cover border border-dark2 mt-4"/></Link>)}
-        </div>
+        <Reveal className="flex items-end justify-between mb-6">
+          <span className="hero-text text-4xl tracking-tight text-light">{t("home.featured")}</span>
+          <Link to="/projects" className="text-sm text-light/60 hover:text-primary underline">{t("home.viewAll")}</Link>
+        </Reveal>
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-6" gap={0.07}>
+          {projects.map((item,i)=>(
+            <Stagger.Item key={i}>
+              <TiltCard max={4} className="card h-full">
+                <Link to={'/projects/'+item.slug} state={item} className="block p-6">
+                  <div className="font-mono text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div>
+                  <div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div>
+                  <div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
+                  <img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-lg w-full aspect-[16/10] object-cover border border-line mt-4"/>
+                </Link>
+              </TiltCard>
+            </Stagger.Item>
+          ))}
+        </Stagger>
       </div>
     </>
   )

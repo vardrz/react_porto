@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import SEO from "../components/SEO";
+import Reveal from "../components/motion/Reveal";
 
 const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Articles";
 
@@ -35,13 +36,13 @@ function ArticleSection(){
 
     return (
         <div className="w-full py-24 px-6 md:px-10 max-w-6xl mx-auto text-light">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
+            <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
                 <div>
                     <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">{t("articles.title")}</div>
                     <div className="text-sm text-light/40 mt-2">{t("articles.subtitle")}</div>
                 </div>
-                <span className="text-xs tracking-[0.2em] uppercase text-light/40">{articles?.length ?? 0} {t("articles.title")}</span>
-            </div>
+                <span className="font-mono text-xs tracking-[0.2em] uppercase text-light/40">{articles?.length ?? 0} {t("articles.title")}</span>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 articles != null

@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import SEO from "../components/SEO";
+import Reveal from "../components/motion/Reveal";
 
 const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Articles";
 
@@ -52,9 +53,9 @@ export default function ArticleDetail(){
                 <div className="text-xs tracking-[0.2em] uppercase text-light/40 mt-3">{article.date ?? ""}</div>
             </div>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
-                <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
+                <Reveal className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
                     {content}
-                </div>
+                </Reveal>
             </div>
         </>
     )

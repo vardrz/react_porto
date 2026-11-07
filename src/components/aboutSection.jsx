@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import Reveal from "./motion/Reveal";
+import Stagger from "./motion/Stagger";
 
 export default function HeroSection() {
     const { t, lang } = useLang();
@@ -27,7 +29,7 @@ export default function HeroSection() {
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className="flex flex-col w-full mt-7">
+                    <Reveal className="flex flex-col w-full mt-7">
                         <div className="flex flex-col md:flex-row items-center md:items-end">
                             {
                                 avatarLoad ?
@@ -37,13 +39,13 @@ export default function HeroSection() {
                                         </svg>
                                     </div> : ""
                             }
-                            <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6" onLoad={() => setAvatarLoad(false)}/>
+                            <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6 border border-line rounded-full" onLoad={() => setAvatarLoad(false)} alt="Farid Fatkhurrozak"/>
                             <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">{t("about.focused")}</span>
                         </div>
                         <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">{t("about.heading")}</span>
-                    </div>
-                    <div className="w-full py-7 md:pl-10">
-                        <p className="text-light/70 text-center md:text-left leading-relaxed text-[15px] md:text-base whitespace-pre-wrap">
+                    </Reveal>
+                    <Reveal className="w-full py-7 md:pl-10" delay={0.12}>
+                        <p className="text-light/70 text-center md:text-left leading-relaxed text-[15px] md:text-base whitespace-pre-wrap text-balance">
                             {pickLangField(profil, "desc", lang) || t("about.fallback")}
                         </p>
                         <div className="w-full mt-8 inline-flex flex-row justify-center md:justify-start">
@@ -79,12 +81,12 @@ export default function HeroSection() {
                                 </svg>
                             </SocialIcon>
                         </div>
-                        <div className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.years")}</span>
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.projectsCount")}</span>
-                            <span className="px-3 py-1 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.location")}</span>
-                        </div>
-                    </div>
+                        <Stagger className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start" gap={0.05}>
+                            <Stagger.Item><span className="px-3 py-1 rounded-full border border-line bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.years")}</span></Stagger.Item>
+                            <Stagger.Item><span className="px-3 py-1 rounded-full border border-line bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.projectsCount")}</span></Stagger.Item>
+                            <Stagger.Item><span className="px-3 py-1 rounded-full border border-line bg-dark2/40 text-xs tracking-wide text-light/60">{t("about.location")}</span></Stagger.Item>
+                        </Stagger>
+                    </Reveal>
                 </div>
             </div>
         </>

@@ -5,6 +5,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import SEO from "../components/SEO";
+import Reveal from "../components/motion/Reveal";
 
 import Navbar from "../components/navbar";
 
@@ -48,11 +49,11 @@ export default function ProjectDetail(){
             <SEO title={title} description={desc || title} canonical={`/projects/${slug}`} image={img} type="article" lang={lang} noindex article={{ publishedTime: project.date, author: project.createBy || "Farid Fatkhurrozak" }} />
             <Navbar from="projects"/>
             <ProjectImages data={project} t={t}/>
-            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
+            <Reveal className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
                 <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
                     {pickLangField(project,"fullDesc",lang)}
                 </div>
-            </div>
+            </Reveal>
         </>
     )
 }
