@@ -1,4 +1,5 @@
 import { useLang } from "../context/LangContext";
+import { asset } from "../utils/asset";
 import Reveal from "./motion/Reveal";
 import Stagger from "./motion/Stagger";
 export default function TechStack(){
@@ -36,7 +37,7 @@ export default function TechStack(){
                     {techIcons.map((item, index) => (
                         <Stagger.Item key={index}>
                             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-line bg-dark2/40 text-xs tracking-wide text-light/70 hover:border-primary/30 hover:bg-dark2/60 transition">
-                                <img className="w-4 h-4" src={"tech-icons/" + item.icon} alt={item.name}/>{item.name}
+                                <img className="w-4 h-4" src={asset("tech-icons/" + item.icon)} alt={item.name}/>{item.name}
                             </span>
                         </Stagger.Item>
                     ))}
