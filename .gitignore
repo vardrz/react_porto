@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .serena/
+
+# superpowers scratch
+.superpowers/
+
+.vitest/

@@ -4,6 +4,8 @@ import Navbar from "../components/navbar";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import SEO from "../components/SEO";
+import Reveal from "../components/motion/Reveal";
+import { fetchJson, readArrayCache } from "../utils/network";
 
 const API = "https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Articles";
 
@@ -13,27 +15,37 @@ export default function ArticleDetail(){
     const loc = useLocation();
     const [article, setArticle] = useState(loc.state ?? null);
     const [checked, setChecked] = useState(!!loc.state);
+    const [failed, setFailed] = useState(false);
 
     useEffect(() => {
         if(loc.state) return;
         // try cache
-        try {
-            const cached = JSON.parse(localStorage.getItem("articles"));
-            const found = cached?.find(a => a.slug === slug);
-            if(found){ setArticle(found); setChecked(true); return; }
-        } catch { /* ignore */ }
-        fetch(API).then(r=>r.json()).then(json=>{
+        const cached = readArrayCache("articles");
+        const foundCached = cached?.find(a => a.slug === slug);
+        if(foundCached){ setArticle(foundCached); setChecked(true); return; }
+        let cancelled = false;
+        fetchJson(API).then(json=>{
+            if(cancelled) return;
             const data = Array.isArray(json) ? json : [];
             const found = data.find(a => a.slug === slug);
             if(found){ setArticle(found); try{ localStorage.setItem("articles", JSON.stringify(data)); } catch{/*ignore*/}}
             setChecked(true);
-        }).catch(()=> setChecked(true));
+        }).catch(()=>{ if(!cancelled){ setFailed(true); setChecked(true); } });
+        return () => { cancelled = true; };
     }, [slug, loc.state]);
 
     if(!checked) return (
         <>
             <Navbar from="articles"/>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24"><div className="h-8 w-2/3 bg-dark2/50 rounded-lg animate-pulse"></div><div className="mt-4 h-4 w-full bg-dark2/50 rounded-lg animate-pulse"></div></div>
+        </>
+    );
+    if(!article && failed) return (
+        <>
+            <Navbar from="articles"/>
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
+                <div className="card p-6 text-sm text-light/60">{t("articles.failed")}</div>
+            </div>
         </>
     );
     if(!article) return <Navigate to="/notfound" state={{ from: 'articles' }} />;
@@ -47,14 +59,14 @@ export default function ArticleDetail(){
             <SEO title={title} description={desc || title} canonical={`/articles/${slug}`} type="article" lang={lang} article={{ publishedTime: article.date, author: "Farid Fatkhurrozak" }} />
             <Navbar from="articles"/>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
-                <Link to="/articles" className="text-xs tracking-widest text-light/40 hover:text-primary transition">← {t("articles.back")}</Link>
+                <Link to="/articles" className="text-xs tracking-widest text-light/50 hover:text-primary transition">← {t("articles.back")}</Link>
                 <div className="hero-text text-3xl md:text-4xl tracking-tight text-light mt-4">{title}</div>
-                <div className="text-xs tracking-[0.2em] uppercase text-light/40 mt-3">{article.date ?? ""}</div>
+                <div className="text-xs tracking-[0.2em] uppercase text-light/50 mt-3">{article.date ?? ""}</div>
             </div>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto py-10">
-                <div className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
+                <Reveal className="max-w-3xl text-base md:text-lg leading-relaxed text-light/80 whitespace-pre-wrap prose prose-invert">
                     {content}
-                </div>
+                </Reveal>
             </div>
         </>
     )

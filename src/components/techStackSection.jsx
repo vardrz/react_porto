@@ -1,4 +1,6 @@
 import { useLang } from "../context/LangContext";
+import Reveal from "./motion/Reveal";
+import Stagger from "./motion/Stagger";
 export default function TechStack(){
     const { t } = useLang();
     const techIcons = [
@@ -29,15 +31,17 @@ export default function TechStack(){
     return (
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto mt-24 mb-24">
-                <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">{t("techStack.title")}</div>
-                <div className="flex flex-wrap gap-2">
+                <Reveal className="font-mono text-xs tracking-[0.2em] uppercase text-light/50 mb-6">{t("techStack.title")}</Reveal>
+                <Stagger className="flex flex-wrap gap-2" gap={0.03}>
                     {techIcons.map((item, index) => (
-                        <span key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-secondary/20 bg-dark2/40 text-xs tracking-wide text-light/70 hover:border-primary/30 transition">
-                            <img className="w-4 h-4" src={"tech-icons/" + item.icon}/>{item.name}
-                        </span>
+                        <Stagger.Item key={index}>
+                            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-line bg-dark2/40 text-xs tracking-wide text-light/70 hover:border-primary/30 hover:bg-dark2/60 transition">
+                                <img className="w-4 h-4" src={"tech-icons/" + item.icon} alt={item.name}/>{item.name}
+                            </span>
+                        </Stagger.Item>
                     ))}
-                </div>
-                <div className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/40">{t("techStack.tools")}</div>
+                </Stagger>
+                <Reveal className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/50">{t("techStack.tools")}</Reveal>
             </div>
         </>
     )

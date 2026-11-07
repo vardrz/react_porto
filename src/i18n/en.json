@@ -5,13 +5,17 @@
     "typing1": "I develop Web App💻",
     "typing2": "I develop Mobile App📱",
     "subtitle": "Web & Mobile developer — React, Flutter, Go. Focused on clean, fast, maintainable products.",
-    "stats": "3+ YEARS • 20+ PROJECTS • PEKALONGAN, ID",
-    "statsMobile": "3+ YEARS • 20+ PROJECTS",
+    "statsYears": 3,
+    "statsProjects": 20,
+    "statsLocation": "PEKALONGAN, ID",
+    "statsYearsSuffix": "+ YEARS",
+    "statsProjectsSuffix": "+ PROJECTS",
     "ctaProjects": "View Projects",
     "ctaContact": "Contact"
   },
   "home": { "featured": "Featured Projects", "viewAll": "View all →" },
-  "projects": { "title": "Projects", "featured": "Featured Projects", "live": "Live →" },
+  "projects": { "title": "Projects", "featured": "Featured Projects", "live": "Live →", "empty": "No projects to show yet.", "failed": "Couldn't load projects." },
+  "common": { "retry": "Try again" },
   "contact": { "lets": "Let's", "connect": "Connect", "desc": "Need anything? Just hit me up. Email or social media works." },
   "about": {
     "focused": "focused on",
@@ -22,6 +26,6 @@
     "location": "Pekalongan, ID"
   },
   "techStack": { "title": "Tech Stack", "tools": "Tools I use daily" },
-  "articles": { "title": "Blog", "subtitle": "Writings & Notes", "empty": "No articles yet.", "back": "Back to Blog", "readMore": "Read →" },
+  "articles": { "title": "Blog", "subtitle": "Writings & Notes", "empty": "No articles yet.", "failed": "Couldn't load articles.", "back": "Back to Blog", "readMore": "Read →" },
   "notFound": { "wayoo": "WAYOO", "goBack": "Go Back" }
 }
