@@ -28,7 +28,7 @@ export default function Home() {
             <Stagger.Item key={i}>
               <TiltCard max={4} className="card h-full">
                 <Link to={'/projects/'+item.slug} state={item} className="block p-6">
-                  <div className="font-mono text-xs tracking-widest text-light/40">0{i+1} — {item.createBy}</div>
+                  <div className="font-mono text-xs tracking-widest text-light/50">0{i+1} — {item.createBy}</div>
                   <div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div>
                   <div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
                   <img src={"projects/"+item.images.split(',')[0]} loading="lazy" className="rounded-lg w-full aspect-[16/10] object-cover border border-line mt-4"/>

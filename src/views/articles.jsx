@@ -39,9 +39,9 @@ function ArticleSection(){
             <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
                 <div>
                     <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">{t("articles.title")}</div>
-                    <div className="text-sm text-light/40 mt-2">{t("articles.subtitle")}</div>
+                    <div className="text-sm text-light/50 mt-2">{t("articles.subtitle")}</div>
                 </div>
-                <span className="font-mono text-xs tracking-[0.2em] uppercase text-light/40">{articles?.length ?? 0} {t("articles.title")}</span>
+                <span className="font-mono text-xs tracking-[0.2em] uppercase text-light/50">{articles?.length ?? 0} {t("articles.title")}</span>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
@@ -49,13 +49,13 @@ function ArticleSection(){
                     ? articles.length
                         ? articles.map((item, i) => (
                             <Link key={item.slug ?? i} to={'/articles/'+item.slug} state={item} className="rounded-lg border border-dark2 p-6 hover:border-secondary/20 hover:bg-dark2/50 transition duration-200 block">
-                                <div className="text-xs tracking-[0.2em] uppercase text-light/40">{item.date ?? ""}</div>
+                                <div className="text-xs tracking-[0.2em] uppercase text-light/50">{item.date ?? ""}</div>
                                 <div className="hero-text text-xl font-semibold tracking-tight text-light mt-2 line-clamp-2">{pickLangField(item,"title",lang) || item.title_en || item.title_id || item.slug}</div>
                                 {(() => { const c = pickLangField(item,"content",lang) || item.content_en || item.content_id || ""; const w = c.split(/\s+/); const p = w.length > 22 ? w.slice(0,22).join(" ")+"…" : c; return <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-3 whitespace-pre-wrap">{p}</div>; })()}
                                 <div className="mt-4 text-xs tracking-widest text-primary">{t("articles.readMore")}</div>
                             </Link>
                         ))
-                        : <div className="text-light/40 text-sm">{t("articles.empty")}</div>
+                        : <div className="text-light/50 text-sm">{t("articles.empty")}</div>
                     : (
                         <>
                         <div className="rounded-lg border border-dark2 p-6 animate-pulse"><div className="bg-dark2/50 rounded-lg w-3/5 h-6"></div><div className="bg-dark2/50 rounded-lg mt-4 h-4"></div><div className="bg-dark2/50 rounded-lg mt-2 h-4"></div></div>

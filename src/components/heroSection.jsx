@@ -44,7 +44,7 @@ export default function HeroSection() {
                     </Reveal>
 
                     <Reveal delay={0.24}>
-                        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs sm:text-sm tracking-wide text-light/40 uppercase">
+                        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs sm:text-sm tracking-wide text-light/50 uppercase">
                             <Counter to={Number(t("hero.statsYears"))} suffix={t("hero.statsYearsSuffix")} />
                             <span className="text-primary/40">•</span>
                             <Counter to={Number(t("hero.statsProjects"))} suffix={t("hero.statsProjectsSuffix")} />

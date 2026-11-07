@@ -31,7 +31,7 @@ export default function TechStack(){
     return (
         <>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto mt-24 mb-24">
-                <Reveal className="font-mono text-xs tracking-[0.2em] uppercase text-light/40 mb-6">{t("techStack.title")}</Reveal>
+                <Reveal className="font-mono text-xs tracking-[0.2em] uppercase text-light/50 mb-6">{t("techStack.title")}</Reveal>
                 <Stagger className="flex flex-wrap gap-2" gap={0.03}>
                     {techIcons.map((item, index) => (
                         <Stagger.Item key={index}>
@@ -41,7 +41,7 @@ export default function TechStack(){
                         </Stagger.Item>
                     ))}
                 </Stagger>
-                <Reveal className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/40">{t("techStack.tools")}</Reveal>
+                <Reveal className="hidden md:block mt-8 text-5xl tracking-tight hero-text text-light/50">{t("techStack.tools")}</Reveal>
             </div>
         </>
     )

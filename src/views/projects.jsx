@@ -42,7 +42,7 @@ function ProjectSection(){
         <div className="w-full py-24 px-6 md:px-10 max-w-6xl mx-auto text-light">
             <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
                 <div className="hero-text text-5xl sm:text-6xl tracking-tight leading-none">{t("projects.title")}</div>
-                <span className="font-mono text-xs tracking-[0.2em] uppercase text-light/40">{projects?.length ?? 0} {t("projects.featured")}</span>
+                <span className="font-mono text-xs tracking-[0.2em] uppercase text-light/50">{projects?.length ?? 0} {t("projects.featured")}</span>
             </Reveal>
             <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-6" gap={0.07}>
             {
@@ -51,7 +51,7 @@ function ProjectSection(){
                         <Stagger.Item key={index}>
                         <TiltCard max={4} className="card overflow-hidden h-full">
                             <div className="p-6">
-                                <div className="font-mono text-xs tracking-[0.2em] uppercase text-light/40">0{index+1} — {item.createBy.toUpperCase()} • {item.date}</div>
+                                <div className="font-mono text-xs tracking-[0.2em] uppercase text-light/50">0{index+1} — {item.createBy.toUpperCase()} • {item.date}</div>
                                 <Link to={'/projects/' + item.slug} state={item} className="hero-text text-2xl font-semibold tracking-tight text-light hover:text-primary/80 transition mt-2 block">{item.title}</Link>
                                 <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
                                 <div className="flex items-center gap-4 mt-3">
