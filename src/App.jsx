@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import { useEffect } from "react"
 import { HelmetProvider } from "react-helmet-async"
+import { MotionConfig } from "framer-motion"
 
 import Home from "./views/home"
 import About from "./views/about"
@@ -27,7 +28,9 @@ export default function App() {
   return (
     <HelmetProvider>
       <LangProvider>
-        <RouterProvider router={router} />
+        <MotionConfig reducedMotion="user">
+          <RouterProvider router={router} />
+        </MotionConfig>
       </LangProvider>
     </HelmetProvider>
   );
