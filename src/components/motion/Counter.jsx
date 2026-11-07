@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView, useReducedMotion } from "framer-motion";
+import { CAN_REVEAL } from "./capabilities";
 
 /**
  * Angka yang naik dari 0 ke `to` sekali saat masuk viewport.
@@ -11,9 +12,16 @@ export default function Counter({ to, suffix = "", duration = 900, className = "
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduced = useReducedMotion();
-  const [n, setN] = useState(reduced ? value : 0);
+
+  // Tanpa IntersectionObserver angkanya tidak akan pernah "masuk viewport",
+  // jadi tampilkan nilai final langsung — jangan biarkan tertinggal di 0.
+  const [n, setN] = useState(!CAN_REVEAL || reduced ? value : 0);
 
   useEffect(() => {
+    if (!CAN_REVEAL) {
+      setN(value);
+      return;
+    }
     if (!inView) return;
     if (reduced) {
       setN(value);
