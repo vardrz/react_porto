@@ -20,7 +20,7 @@ function ContactSection(){
     const { t } = useLang();
     return (
         <>
-            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto min-h-[calc(100vh-4rem)] flex items-center py-8">
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto min-h-[calc(100vh-4rem)] flex items-center pt-24 pb-8 md:pt-8 md:pb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center w-full">
                     <div className="flex flex-col md:justify-center w-full lg:pl-10">
                         <Reveal y={32}><span className="hero-text block text-7xl sm:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-light">{t("contact.lets")}</span></Reveal>
