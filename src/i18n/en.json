@@ -5,8 +5,11 @@
     "typing1": "I develop Web App💻",
     "typing2": "I develop Mobile App📱",
     "subtitle": "Web & Mobile developer — React, Flutter, Go. Focused on clean, fast, maintainable products.",
-    "stats": "3+ YEARS • 20+ PROJECTS • PEKALONGAN, ID",
-    "statsMobile": "3+ YEARS • 20+ PROJECTS",
+    "statsYears": 3,
+    "statsProjects": 20,
+    "statsLocation": "PEKALONGAN, ID",
+    "statsYearsSuffix": "+ YEARS",
+    "statsProjectsSuffix": "+ PROJECTS",
     "ctaProjects": "View Projects",
     "ctaContact": "Contact"
   },
