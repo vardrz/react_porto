@@ -19,6 +19,7 @@ import Contact from "./views/contact"
 import ProjectDetail from "./views/projectsDetail"
 import NotFound from "./views/notFound"
 import { LangProvider } from "./context/LangContext"
+import BackgroundFX from "./components/ui/BackgroundFX"
 
 const router = createBrowserRouter([
   { path: "*", Component: Root }
@@ -40,6 +41,7 @@ function ScrollTop(){ const {pathname}=useLocation(); useEffect(()=>{ window.scr
 function Root() {
   return (
     <>
+    <BackgroundFX/>
     <ScrollTop/>
     <Routes>
       <Route path="*" element={<Navigate to="/notfound" replace />} />
