@@ -26,3 +26,5 @@ dist-ssr
 
 # superpowers scratch
 .superpowers/
+
+.vitest/
