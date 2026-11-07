@@ -9,6 +9,7 @@ import Reveal from "../components/motion/Reveal"
 import Stagger from "../components/motion/Stagger"
 import TiltCard from "../components/motion/TiltCard"
 import { fetchJson, readArrayCache } from "../utils/network"
+import { asset } from "../utils/asset"
 
 const API = 'https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec'
 
@@ -55,7 +56,7 @@ export default function Home() {
                     <div className="font-mono text-xs tracking-widest text-light/50">0{i+1} — {item.createBy}</div>
                     <div className="hero-text text-xl font-semibold mt-2 text-light">{item.title}</div>
                     <div className="text-sm text-light/60 line-clamp-2 mt-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
-                    <img src={"projects/"+item.images.split(',')[0]} alt={item.title} loading="lazy" className="rounded-lg w-full aspect-[16/10] object-cover border border-line mt-4"/>
+                    <img src={asset("projects/"+item.images.split(',')[0])} alt={item.title} loading="lazy" className="rounded-lg w-full aspect-[16/10] object-cover border border-line mt-4"/>
                   </Link>
                 </TiltCard>
               </Stagger.Item>

@@ -8,6 +8,7 @@ import Reveal from "../components/motion/Reveal";
 import Stagger from "../components/motion/Stagger";
 import TiltCard from "../components/motion/TiltCard";
 import { fetchJson, readArrayCache } from "../utils/network";
+import { asset } from "../utils/asset";
 
 export default function Projects(){
     const { lang } = useLang();
@@ -69,12 +70,12 @@ function ProjectSection(){
                                 <Link to={'/projects/' + item.slug} state={item} className="hero-text text-2xl font-semibold tracking-tight text-light hover:text-primary/80 transition mt-2 block">{item.title}</Link>
                                 <div className="text-[15px] leading-relaxed text-light/70 mt-3 line-clamp-2 whitespace-pre-wrap">{pickLangField(item,"desc",lang)}</div>
                                 <div className="flex items-center gap-4 mt-3">
-                                    <span className="inline-flex items-center text-xs text-light/50"><img src={"tech-icons/" + item.createBy + ".svg"} className="w-4 h-4 mr-1" alt=""/>{item.createBy}</span>
+                                    <span className="inline-flex items-center text-xs text-light/50"><img src={asset("tech-icons/" + item.createBy + ".svg")} className="w-4 h-4 mr-1" alt=""/>{item.createBy}</span>
                                     {item.link!='-' ? <a href={item.link} target="_blank" rel="noreferrer" className="text-xs text-light/50 hover:text-secondary underline">{t("projects.live")}</a> : null}
                                 </div>
                             </div>
                             <Link to={'/projects/' + item.slug} state={item} className="block px-6 pb-6">
-                                <img src={"projects/" + item.images.split(',')[0]} loading="lazy" alt={item.title} className="rounded-lg w-full aspect-[16/10] object-cover border border-line" />
+                                <img src={asset("projects/" + item.images.split(',')[0])} loading="lazy" alt={item.title} className="rounded-lg w-full aspect-[16/10] object-cover border border-line" />
                             </Link>
                         </TiltCard>
                         </Stagger.Item>

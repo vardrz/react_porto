@@ -3,12 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import DrawerMenu from "./drawerMenu";
 import { useState } from "react";
 import { useLang } from "../context/LangContext";
+import { asset } from "../utils/asset";
 
 export default function Navbar(props){
     const [avatarLoad, setAvatarLoad] = useState(true);
     const { lang, toggle, t } = useLang();
     const { pathname } = useLocation();
-    const avatar = "profile.png";
+    const avatar = asset("profile.png");
 
     function HomeLink(){
         if(props.from == 'projects' || props.from == 'articles'){

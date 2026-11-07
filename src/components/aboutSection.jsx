@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import { fetchJson } from "../utils/network";
+import { asset } from "../utils/asset";
 import Reveal from "./motion/Reveal";
 import Stagger from "./motion/Stagger";
 
@@ -46,7 +47,7 @@ export default function HeroSection() {
                                         </svg>
                                     </div> : ""
                             }
-                            <img src="profile.png" className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6 border border-line rounded-full" onLoad={() => setAvatarLoad(false)} alt="Farid Fatkhurrozak"/>
+                            <img src={asset("profile.png")} className="w-32 mb-5 md:w-24 md:mb-0 md:mr-6 border border-line rounded-full" onLoad={() => setAvatarLoad(false)} alt="Farid Fatkhurrozak"/>
                             <span className="hero-text text-4xl hidden md:block lg:text-6xl xl:text-7xl text-light">{t("about.focused")}</span>
                         </div>
                         <span className="hero-text leading-snug lg:leading-tight text-5xl hidden md:block lg:text-6xl xl:text-7xl text-primary ml-3 mt-5">{t("about.heading")}</span>
