@@ -14,7 +14,8 @@
     "ctaContact": "Kontak"
   },
   "home": { "featured": "Proyek Pilihan", "viewAll": "Lihat semua →" },
-  "projects": { "title": "Proyek", "featured": "Proyek Pilihan", "live": "Lihat →" },
+  "projects": { "title": "Proyek", "featured": "Proyek Pilihan", "live": "Lihat →", "empty": "Belum ada proyek.", "failed": "Gagal memuat proyek." },
+  "common": { "retry": "Coba lagi" },
   "contact": { "lets": "Mari", "connect": "Terhubung", "desc": "Butuh sesuatu? Hubungi saya. Email atau media sosial bisa." },
   "about": {
     "focused": "fokus di",
@@ -25,6 +26,6 @@
     "location": "Pekalongan, ID"
   },
   "techStack": { "title": "Tech Stack", "tools": "Tools yang saya pakai harian" },
-  "articles": { "title": "Tulisan", "subtitle": "Catatan & Tulisan", "empty": "Belum ada tulisan.", "back": "Kembali ke Tulisan", "readMore": "Baca →" },
+  "articles": { "title": "Tulisan", "subtitle": "Catatan & Tulisan", "empty": "Belum ada tulisan.", "failed": "Gagal memuat tulisan.", "back": "Kembali ke Tulisan", "readMore": "Baca →" },
   "notFound": { "wayoo": "WAYOO", "goBack": "Kembali" }
 }

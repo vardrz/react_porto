@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
+import { fetchJson } from "../utils/network";
 import Reveal from "./motion/Reveal";
 import Stagger from "./motion/Stagger";
 
@@ -9,20 +10,26 @@ export default function HeroSection() {
     const { t, lang } = useLang();
     const [avatarLoad, setAvatarLoad] = useState(true);
     const [profil, setProfil] = useState(() => {
-        try { return JSON.parse(localStorage.getItem("profil")); } catch { return null; }
+        try {
+            const parsed = JSON.parse(localStorage.getItem("profil"));
+            if (Array.isArray(parsed)) return parsed[0] ?? null;
+            return parsed && typeof parsed === "object" ? parsed : null;
+        } catch { return null; }
     });
 
     useEffect(() => {
-        fetch('https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Profil')
-            .then(r => r.json())
+        let cancelled = false;
+        fetchJson('https://script.google.com/macros/s/AKfycbznmENKsG0AzxvG1-1Z7iTbFA5FxwF9mTnp1sXajPqKYvgYOI43zNL-MZHLb3Zj5NEUSg/exec?sheet=Profil')
             .then(json => {
+                if (cancelled) return;
                 const data = Array.isArray(json) ? json[0] : json;
                 if (data && !data.error) {
                     setProfil(data);
-                    localStorage.setItem("profil", JSON.stringify(data));
+                    try { localStorage.setItem("profil", JSON.stringify(data)); } catch { /* ignore */ }
                 }
             })
-            .catch(e => console.error(e));
+            .catch(() => { /* biarkan fallback i18n tampil */ });
+        return () => { cancelled = true; };
     }, []);
 
     return (

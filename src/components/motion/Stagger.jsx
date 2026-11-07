@@ -1,12 +1,22 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
+import { CAN_REVEAL } from "./capabilities";
 
 const EASE = [0.22, 1, 0.36, 1];
 
 /**
  * Parent stagger. Anak harus dibungkus <Stagger.Item>.
+ * Tanpa IntersectionObserver, semua anak langsung terlihat.
  */
 export default function Stagger({ children, gap = 0.07, className = "", ...rest }) {
+  if (!CAN_REVEAL) {
+    return (
+      <div className={className} {...rest}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className={className}
@@ -25,6 +35,14 @@ export default function Stagger({ children, gap = 0.07, className = "", ...rest 
 }
 
 export function StaggerItem({ children, className = "", ...rest }) {
+  if (!CAN_REVEAL) {
+    return (
+      <div className={className} {...rest}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className={className}

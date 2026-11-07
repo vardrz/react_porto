@@ -7,7 +7,6 @@ export default function NotFound() {
   const { t } = useLang();
   const [goHome, setGoHome] = useState(false);
   const from = useLocation().state;
-  console.log(from);
 
   function goToHome() {
     setGoHome(true);

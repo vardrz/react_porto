@@ -18,11 +18,4 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-  overrides: [
-    {
-      // three.js / R3F punya properti JSX sendiri yang tidak dikenali eslint-plugin-react
-      files: ['src/components/hero/CodeCube.jsx', 'src/components/hero/HeroScene.jsx'],
-      rules: { 'react/no-unknown-property': 'off' },
-    },
-  ],
 }

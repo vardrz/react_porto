@@ -6,6 +6,7 @@ import { useLang } from "../context/LangContext";
 import { pickLangField } from "../context/pickLang";
 import SEO from "../components/SEO";
 import Reveal from "../components/motion/Reveal";
+import { fetchJson, readArrayCache } from "../utils/network";
 
 import Navbar from "../components/navbar";
 
@@ -21,22 +22,36 @@ export default function ProjectDetail(){
     const loc = useLocation();
     const [project, setProject] = useState(loc.state ?? null);
     const [checked, setChecked] = useState(!!loc.state);
+    const [failed, setFailed] = useState(false);
 
     useEffect(()=>{
         if(loc.state) return;
-        try{ const cached=JSON.parse(localStorage.getItem("projects")); const found=cached?.find(p=>p.slug===slug); if(found){ setProject(found); setChecked(true); return; } }catch{/*ignore*/}
-        fetch(API).then(r=>r.json()).then(json=>{
-            const data=Array.isArray(json)?json:[];
-            const found=data.find(p=>p.slug===slug);
+        const cached = readArrayCache("projects");
+        const foundCached = cached?.find(p=>p.slug===slug);
+        if(foundCached){ setProject(foundCached); setChecked(true); return; }
+        let cancelled = false;
+        fetchJson(API).then(json=>{
+            if(cancelled) return;
+            const data = Array.isArray(json) ? json : [];
+            const found = data.find(p=>p.slug===slug);
             if(found){ setProject(found); try{localStorage.setItem("projects",JSON.stringify(data))}catch{/*ignore*/}}
             setChecked(true);
-        }).catch(()=>setChecked(true));
+        }).catch(()=>{ if(!cancelled){ setFailed(true); setChecked(true); } });
+        return () => { cancelled = true; };
     },[slug, loc.state]);
 
     if(!checked) return (
         <>
             <Navbar from="projects"/>
             <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24"><div className="h-8 w-2/3 bg-dark2/50 rounded-lg animate-pulse"></div></div>
+        </>
+    );
+    if(!project && failed) return (
+        <>
+            <Navbar from="projects"/>
+            <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
+                <div className="card p-6 text-sm text-light/60">{t("projects.failed")}</div>
+            </div>
         </>
     );
     if(!project) return <Navigate to="/notfound" state={{ from: 'projects' }} />;
@@ -66,7 +81,7 @@ function ProjectImages(data){
     return (
         <div className="w-full px-6 md:px-10 max-w-6xl mx-auto pt-24">
             <div className="hero-text text-3xl md:text-4xl tracking-tight text-light mb-2">{data.data.title}</div>
-            <div className="text-xs tracking-[0.2em] uppercase text-light/40 mb-6">{data.data.createBy} • {data.data.date} {data.data.link!='-' ? <a href={data.data.link} target="_blank" className="ml-2 underline hover:text-secondary">{t("projects.live")}</a> : null}</div>
+            <div className="text-xs tracking-[0.2em] uppercase text-light/50 mb-6">{data.data.createBy} • {data.data.date} {data.data.link!='-' ? <a href={data.data.link} target="_blank" rel="noreferrer" className="ml-2 underline hover:text-secondary">{t("projects.live")}</a> : null}</div>
             <img src={"/projects/"+images[0]} className='w-full aspect-[16/9] object-cover rounded-lg border border-dark2 mb-8' />
             <Swiper
                 slidesPerView={1}

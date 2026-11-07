@@ -98,7 +98,7 @@ export default function SEO({
       <meta name="twitter:description" content={desc} />
       <meta name="twitter:image" content={img} />
 
-      <meta name="theme-color" content="#0a0a0a" />
+      <meta name="theme-color" content="#12181A" />
 
       <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(websiteJsonLd)}</script>
